@@ -89,12 +89,13 @@ function Hero() {
             <StoreBadge kind="google" />
           </div>
 
-          {/* Mini stats */}
+          {/* Mini stats — 출시 후 실제 수치 확보 시 활성화
           <div style={{ marginTop: 44, display: 'flex', gap: 36, flexWrap: 'wrap' }}>
             <Stat n="4.8" sub="App Store 평점" />
             <Stat n="12K+" sub="누적 다운로드" />
             <Stat n="₩2.3억" sub="유저들 누적 절약액" />
           </div>
+          */}
         </div>
 
         {/* Right: device showcase */}
