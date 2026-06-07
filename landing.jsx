@@ -608,8 +608,42 @@ function FinalCTA() {
 // FOOTER
 // ──────────────────────────────────────────────────────────
 function Footer() {
+  const [showAbout, setShowAbout] = React.useState(false);
+
   return (
     <footer style={{ background: L.bg, padding: '60px 40px 36px', borderTop: `1px solid ${L.line}` }}>
+      {showAbout && (
+        <div
+          onClick={() => setShowAbout(false)}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(13,40,68,0.45)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{ background: '#fff', borderRadius: 20, padding: 32, maxWidth: 380, width: '100%', boxShadow: '0 20px 60px rgba(13,40,68,0.15)' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+              <Mascot size={44} palette="light" mood="happy" shadow={false} />
+              <div>
+                <div style={{ fontSize: 17, fontWeight: 700, color: '#0D2844' }}>눈덩이</div>
+                <div className="font-italiana" style={{ fontSize: 13, color: '#8AA0B7' }}>snowball.</div>
+              </div>
+            </div>
+            <p style={{ fontSize: 14, color: '#506782', lineHeight: 1.75, marginBottom: 20 }}>
+              눈덩이는 작은 절약의 복리 효과를 시각화하는 개인 금융 플래너 앱입니다.<br />
+              1인 풀스택으로 개발·운영합니다.
+            </p>
+            <div style={{ fontSize: 13, color: '#506782', lineHeight: 2 }}>
+              <div>개발자&nbsp;&nbsp;<strong style={{ color: '#0D2844' }}>배진섭</strong></div>
+              <div>이메일&nbsp;&nbsp;<a href="mailto:poxy1535@gmail.com" style={{ color: '#3F7AB0', textDecoration: 'none' }}>poxy1535@gmail.com</a></div>
+            </div>
+            <button
+              onClick={() => setShowAbout(false)}
+              style={{ marginTop: 24, width: '100%', padding: '13px 0', background: '#0D2844', color: '#fff', border: 'none', borderRadius: 999, fontSize: 14, fontWeight: 600, cursor: 'pointer' }}
+            >닫기</button>
+          </div>
+        </div>
+      )}
+
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 40 }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
@@ -623,9 +657,18 @@ function Footer() {
             작은 눈 한 톨이 거대한 부가 됩니다. 매일의 작은 절약이 미래 자산이 되는 시나리오 플래너.
           </p>
         </div>
-        <FooterCol title="제품" links={['기능', '시뮬레이터', '목표', '로드맵']} />
-        <FooterCol title="회사" links={['소개', '블로그', '채용', '문의']} />
-        <FooterCol title="정책" links={[['이용약관', '#'], ['개인정보처리방침', 'privacy.html'], ['라이선스', '#']]} />
+        <FooterCol title="제품" links={[
+          ['기능', '#features'],
+          ['다운로드', '#download'],
+        ]} />
+        <FooterCol title="회사" links={[
+          ['개발자 소개', null, () => setShowAbout(true)],
+          ['문의하기', 'mailto:poxy1535@gmail.com'],
+        ]} />
+        <FooterCol title="정책" links={[
+          ['이용약관', 'terms.html'],
+          ['개인정보처리방침', 'privacy.html'],
+        ]} />
       </div>
       <div style={{ maxWidth: 1200, margin: '40px auto 0', paddingTop: 24, borderTop: `1px solid ${L.line}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ fontSize: 11, color: L.ink3 }}>© 2026 Nundeongyi. All rights reserved.</span>
@@ -645,9 +688,17 @@ function FooterCol({ title, links }) {
         {links.map((l, i) => {
           const label = Array.isArray(l) ? l[0] : l;
           const href = Array.isArray(l) ? l[1] : '#';
+          const onClick = Array.isArray(l) ? l[2] : null;
           return (
             <li key={i}>
-              <a href={href} style={{ fontSize: 13, color: L.ink2, textDecoration: 'none' }}>{label}</a>
+              {onClick ? (
+                <button
+                  onClick={onClick}
+                  style={{ fontSize: 13, color: L.ink2, background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit' }}
+                >{label}</button>
+              ) : (
+                <a href={href || '#'} style={{ fontSize: 13, color: L.ink2, textDecoration: 'none' }}>{label}</a>
+              )}
             </li>
           );
         })}
