@@ -668,6 +668,7 @@ function Footer() {
         <FooterCol title="정책" links={[
           ['이용약관', 'terms.html'],
           ['개인정보처리방침', 'privacy.html'],
+          ['계정 삭제 요청', 'delete-account.html'],
         ]} />
       </div>
       <div style={{ maxWidth: 1200, margin: '40px auto 0', paddingTop: 24, borderTop: `1px solid ${L.line}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
