@@ -166,7 +166,9 @@ function StoreBadge({ kind }) {
   if (kind === 'apple') {
     return (
       <a
-        href="#"
+        href="https://apps.apple.com/app/id6778849270"
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 10,
           padding: '12px 20px', background: L.ink, color: '#fff',
@@ -186,7 +188,9 @@ function StoreBadge({ kind }) {
   }
   return (
     <a
-      href="#"
+      href="https://play.google.com/store/apps/details?id=com.snowball.nundeongyi"
+      target="_blank"
+      rel="noopener noreferrer"
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 10,
         padding: '12px 20px', background: L.surface, color: L.ink,
