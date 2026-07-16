@@ -51,13 +51,19 @@
     <li>소셜 로그인 시: 소셜 계정 고유 식별자, 이메일 주소(소셜 제공 시)</li>
     <li>서비스 이용 시: 사용자가 직접 입력한 자산 정보, 절약 기록, 목표 정보</li>
     <li>자동 수집: 기기 식별 정보(FCM 토큰), 접속 로그</li>
+    <li>자동 수집(이용 통계): 앱 사용 기록(화면 이동, 기능 이용 이벤트), 기기 정보, 앱 인스턴스 식별자 — Google Firebase Analytics</li>
+    <li>자동 수집(오류 진단): 앱 충돌(크래시) 로그 및 진단 정보 — Google Firebase Crashlytics</li>
+    <li>자동 수집(광고): 광고 식별자(Android ADID / iOS IDFA, iOS는 앱 추적 투명성(ATT) 동의 시에 한함) — Google AdMob</li>
   </ul>
+  <p>※ 이용 통계에는 이용자가 입력한 상품명·메모·정확한 금액이 포함되지 않습니다. 금액은 구간 정보로만 처리됩니다.</p>
 
   <h2>2. 개인정보의 수집 및 이용 목적</h2>
   <ul>
     <li>서비스 제공 및 계정 관리</li>
     <li>맞춤형 알림(푸시) 발송</li>
-    <li>서비스 개선 및 통계 분석</li>
+    <li>서비스 개선 및 통계 분석(익명화된 이용 통계)</li>
+    <li>오류 진단 및 앱 품질 개선</li>
+    <li>광고 게재</li>
     <li>법령에 따른 의무 이행</li>
   </ul>
 
@@ -66,6 +72,7 @@
   <ul>
     <li>전자상거래 기록: 5년 (전자상거래법)</li>
     <li>접속 로그: 3개월 (통신비밀보호법)</li>
+    <li>이용 통계(Firebase Analytics): 수집일로부터 최대 14개월</li>
   </ul>
 
   <h2>4. 개인정보의 제3자 제공</h2>
@@ -74,7 +81,8 @@
   <h2>5. 개인정보 처리 위탁</h2>
   <ul>
     <li>Amazon Web Services (AWS): 서버 인프라 운영</li>
-    <li>Google Firebase: 푸시 알림(FCM) 발송</li>
+    <li>Google Firebase: 푸시 알림(FCM) 발송, 이용 통계 분석(Analytics), 오류 진단(Crashlytics)</li>
+    <li>Google AdMob: 앱 내 광고 게재</li>
     <li>Kakao: 카카오 소셜 로그인 처리</li>
   </ul>
 
@@ -103,6 +111,7 @@
   <h2>9. 개정 이력</h2>
   <ul>
     <li>2026-05-20: 최초 제정</li>
+    <li>2026-07-16: 이용 통계(Analytics)·오류 진단(Crashlytics)·광고(AdMob) 수집 항목 및 처리 위탁 명시</li>
   </ul>
 
   <p class="footer-note">© 2026 Nundeongyi. All rights reserved.</p>
