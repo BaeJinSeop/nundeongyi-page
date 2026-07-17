@@ -1,4 +1,5 @@
-// landing.jsx — 눈덩이 랜딩 페이지 (한 페이지 스크롤)
+// landing.jsx — 눈덩이 랜딩 페이지 (2026-07 전체 리뉴얼)
+// 내러티브: 사기 전에 하루만 맡겨두세요 — 담다 → 기다리다 → 답하다 → 눈송이로 남다
 
 const L = {
   bg: '#F7F4ED',          // warm cream — landing 전용 따뜻한 톤
@@ -17,6 +18,11 @@ const L = {
   navyDeep: '#08192C',
   good: '#3A9D7E',
   warm: '#D97757',
+  // 시즌 눈송이 팔레트
+  spring: '#E08FA9',
+  summer: '#4FB39F',
+  autumn: '#D9A04E',
+  winter: '#7DB4DD',
 };
 
 // ──────────────────────────────────────────────────────────
@@ -38,9 +44,9 @@ function Nav() {
       </a>
       <div className="landing-nav-links">
         {[
-          { label: 'features', href: '#features' },
-          { label: 'simulator', href: '#simulator' },
-          { label: 'goals', href: '#goals' },
+          { label: 'how it works', href: '#how' },
+          { label: 'collect', href: '#collect' },
+          { label: 'tools', href: '#tools' },
           { label: 'faq', href: '#faq' },
         ].map((l) => (
           <a key={l.href} href={l.href} className="landing-nav-link">
@@ -56,100 +62,123 @@ function Nav() {
 }
 
 // ──────────────────────────────────────────────────────────
-// HERO
+// HERO — 센터 스테이지
 // ──────────────────────────────────────────────────────────
 function Hero() {
   return (
     <section id="top" style={{ position: 'relative', overflow: 'hidden', background: L.bg }}>
-      {/* Background pattern — falling snow */}
       <div style={{ position: 'absolute', inset: 0, opacity: 0.5, pointerEvents: 'none' }}>
-        <SnowField count={20} color="rgba(125,180,221,0.5)" />
+        <SnowField count={24} color="rgba(125,180,221,0.5)" />
       </div>
 
-      <div className="landing-hero-grid">
-        {/* Left: copy */}
-        <div>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, textTransform: 'uppercase', marginBottom: 24 }}>
-            mindful spending · snowball planner
-          </div>
-          <h1 className="landing-h1">
-            사기 전에,<br />
-            <span className="font-italiana" style={{ fontWeight: 400, letterSpacing: '-0.005em', color: L.accentDeep }}>
-              하루만
-            </span>
-            {' '}맡겨두세요.
-          </h1>
-          <p className="landing-lead" style={{ marginTop: 28, maxWidth: 540 }}>
-            참으라고 하지 않아요. 눈덩이에 맡겨두면 내일의 내가 다시 물어봐요 — 내일도 필요하면 그때 사도 늦지 않으니까요.
-          </p>
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 1080, margin: '0 auto', padding: '150px 24px 0', textAlign: 'center' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, textTransform: 'uppercase', marginBottom: 26 }}>
+          mindful spending · snowball planner
+        </div>
+        <h1 className="landing-h1">
+          사기 전에,<br />
+          <span className="font-italiana" style={{ fontWeight: 400, letterSpacing: '-0.005em', color: L.accentDeep }}>
+            하루만
+          </span>
+          {' '}맡겨두세요.
+        </h1>
+        <p className="landing-lead" style={{ margin: '28px auto 0', maxWidth: 560, fontSize: 'clamp(15px, 1.6vw, 18px)', color: L.ink2, lineHeight: 1.65 }}>
+          참으라고 하지 않아요. 눈덩이에 맡겨두면 내일의 내가 다시 물어봐요 —
+          내일도 필요하면 그때 사도 늦지 않으니까요.
+        </p>
 
-          {/* CTAs */}
-          <div style={{ marginTop: 36, display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-            <StoreBadge kind="apple" />
-            <StoreBadge kind="google" />
-          </div>
-
-          {/* Mini stats — 출시 후 실제 수치 확보 시 활성화
-          <div style={{ marginTop: 44, display: 'flex', gap: 36, flexWrap: 'wrap' }}>
-            <Stat n="4.8" sub="App Store 평점" />
-            <Stat n="12K+" sub="누적 다운로드" />
-            <Stat n="₩2.3억" sub="유저들 누적 절약액" />
-          </div>
-          */}
+        <div style={{ marginTop: 34, display: 'flex', gap: 12, alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <StoreBadge kind="apple" />
+          <StoreBadge kind="google" />
         </div>
 
-        {/* Right: device showcase */}
-        <div className="landing-hero-device">
-          {/* Soft halo */}
-          <div
-            style={{
-              position: 'absolute', width: 480, height: 480, borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(125,180,221,0.35), transparent 65%)',
-              left: '50%', top: '50%', transform: 'translate(-50%, -55%)',
-              maxWidth: '100%',
-            }}
-          />
+        {/* Phone stage */}
+        <div style={{ position: 'relative', marginTop: 64, display: 'flex', justifyContent: 'center', paddingBottom: 0 }}>
+          {/* halo */}
+          <div style={{
+            position: 'absolute', width: 560, height: 560, borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(125,180,221,0.35), transparent 65%)',
+            left: '50%', top: '55%', transform: 'translate(-50%, -50%)', maxWidth: '100%',
+          }} />
 
-          {/* Floating mascot */}
-          <div
-            style={{
-              position: 'absolute', top: 30, left: -10, zIndex: 5,
-              animation: 'slow-float 4s ease-in-out infinite',
-            }}
-          >
-            <Mascot size={130} palette="light" mood="happy" />
+          {/* floating mascot */}
+          <div style={{ position: 'absolute', top: -18, left: 'calc(50% - 300px)', zIndex: 5, animation: 'slow-float 4s ease-in-out infinite' }}>
+            <Mascot size={120} palette="light" mood="happy" />
           </div>
 
-          {/* Device — primary */}
-          <div
-            style={{
-              position: 'relative', zIndex: 2,
-              transform: 'rotate(-3deg)',
-              boxShadow: '0 40px 80px rgba(13,40,68,0.18)',
-              borderRadius: 44,
-            }}
-          >
-            <ConsiderationMockup />
-          </div>
-
-          {/* Small badge / quote */}
-          <div
-            style={{
-              position: 'absolute', bottom: 60, right: -8, zIndex: 6,
-              padding: '14px 18px', background: L.surface, borderRadius: 16,
-              border: `1px solid ${L.line}`,
-              boxShadow: '0 12px 28px rgba(13,40,68,0.10)',
-              maxWidth: 220, transform: 'rotate(2deg)',
-            }}
-          >
+          {/* quote badge */}
+          <div style={{
+            position: 'absolute', top: 130, left: 'calc(50% + 170px)', zIndex: 6,
+            padding: '14px 18px', background: L.surface, borderRadius: 16,
+            border: `1px solid ${L.line}`, boxShadow: '0 12px 28px rgba(13,40,68,0.10)',
+            maxWidth: 220, transform: 'rotate(2deg)', textAlign: 'left',
+          }}>
             <div className="font-italiana" style={{ fontSize: 14, color: L.accentDeep, lineHeight: 1, letterSpacing: '0.02em' }}>hold on.</div>
             <div style={{ marginTop: 4, fontSize: 12, color: L.ink, fontWeight: 700, lineHeight: 1.4 }}>
               "에어팟, 내일 다시 물어볼게요 <span style={{ color: L.accentDeep }}>D-1</span>"
             </div>
           </div>
+
+          {/* device — 하단을 살짝 잘라 다음 섹션으로 이어지는 느낌 */}
+          <div style={{ position: 'relative', zIndex: 2, transform: 'rotate(-2deg)', boxShadow: '0 40px 80px rgba(13,40,68,0.18)', borderRadius: 44, marginBottom: -140 }}>
+            <ConsiderationMockup />
+          </div>
         </div>
       </div>
+
+      {/* fade into next section */}
+      <div style={{ position: 'relative', zIndex: 3, height: 180, background: `linear-gradient(to bottom, transparent, ${L.surface})` }} />
     </section>
+  );
+}
+
+function StoreBadge({ kind }) {
+  if (kind === 'apple') {
+    return (
+      <a
+        href="https://apps.apple.com/app/id6778849270"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'inline-flex', alignItems: 'center', gap: 10,
+          padding: '12px 20px', background: L.ink, color: '#fff',
+          textDecoration: 'none', borderRadius: 14,
+          fontFamily: "'Pretendard Variable', Pretendard, system-ui",
+        }}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.05 12.04c-.03-2.85 2.32-4.22 2.43-4.29-1.32-1.93-3.39-2.19-4.13-2.22-1.76-.18-3.43 1.04-4.32 1.04-.89 0-2.27-1.01-3.73-.99-1.92.03-3.69 1.12-4.68 2.83-2 3.46-.51 8.58 1.43 11.39.95 1.38 2.08 2.92 3.56 2.87 1.43-.06 1.97-.92 3.7-.92s2.22.92 3.73.89c1.54-.03 2.51-1.4 3.45-2.79 1.09-1.6 1.54-3.16 1.57-3.24-.04-.02-3.01-1.15-3.04-4.57M14.5 4.31c.78-.95 1.31-2.27 1.17-3.58-1.13.05-2.5.75-3.31 1.7-.72.84-1.36 2.18-1.19 3.47 1.27.1 2.55-.64 3.33-1.59"/>
+        </svg>
+        <div style={{ textAlign: 'left', lineHeight: 1 }}>
+          <div style={{ fontSize: 9, color: '#A6C8E4', letterSpacing: '0.04em' }}>Download on the</div>
+          <div style={{ fontSize: 16, fontWeight: 700, marginTop: 2 }}>App Store</div>
+        </div>
+      </a>
+    );
+  }
+  return (
+    <a
+      href="https://play.google.com/store/apps/details?id=com.snowball.nundeongyi"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: 'inline-flex', alignItems: 'center', gap: 10,
+        padding: '12px 20px', background: L.surface, color: L.ink,
+        border: `1px solid ${L.line}`, textDecoration: 'none', borderRadius: 14,
+        fontFamily: "'Pretendard Variable', Pretendard, system-ui",
+      }}
+    >
+      <svg width="22" height="22" viewBox="0 0 24 24">
+        <path d="M3.609 1.814L13.792 12 3.61 22.186c-.293-.157-.493-.46-.493-.83V2.643c0-.37.2-.672.493-.83z" fill="#00C853"/>
+        <path d="M16.81 8.97l-2.6 2.6 2.6 2.6 3.78-2.18c.43-.25.43-.85 0-1.1l-3.78-1.92z" fill="#FFD600"/>
+        <path d="M16.81 14.17l-2.6-2.6-10.6 10.62c.27.13.59.13.86-.02l12.34-7z" fill="#FF3D00"/>
+        <path d="M3.61 1.81c-.29.16-.49.46-.49.83v.86l11.09 8.07-2.6-2.6L3.61 1.81z" fill="#2962FF"/>
+      </svg>
+      <div style={{ textAlign: 'left', lineHeight: 1 }}>
+        <div style={{ fontSize: 9, color: L.ink3, letterSpacing: '0.04em' }}>GET IT ON</div>
+        <div style={{ fontSize: 16, fontWeight: 700, marginTop: 2 }}>Google Play</div>
+      </div>
+    </a>
   );
 }
 
@@ -227,141 +256,168 @@ function ConsiderCard({ emoji, name, amount, dday, ddayColor, note, highlight })
   );
 }
 
-function Stat({ n, sub }) {
+// ──────────────────────────────────────────────────────────
+// EMPATHY — 새벽의 장바구니
+// ──────────────────────────────────────────────────────────
+function Empathy() {
+  const bubbles = [
+    { who: 'me', time: '새벽 1:24', text: '이건 진짜 사야 해... 🛒' },
+    { who: 'snowball', time: '눈덩이', text: '좋아 보여요! 일단 하루만 맡겨둘까요?' },
+    { who: 'me', time: '다음날 저녁 8:02', text: '어… 생각해보니 지난달에 산 거랑 똑같네' },
+  ];
   return (
-    <div>
-      <div className="tnum" style={{ fontSize: 28, fontWeight: 700, color: L.ink, letterSpacing: '-0.02em', lineHeight: 1 }}>{n}</div>
-      <div style={{ fontSize: 11, color: L.ink3, marginTop: 4 }}>{sub}</div>
+    <section style={{ background: L.surface, padding: 'clamp(70px, 9vw, 110px) 24px 0' }}>
+      <div style={{ maxWidth: 980, margin: '0 auto', textAlign: 'center' }}>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.ink3, marginBottom: 18 }}>
+          WE'VE ALL BEEN THERE
+        </div>
+        <p className="landing-tagline">
+          장바구니에 담을 때의 나와,<br />
+          <span style={{ color: L.accentDeep }}>하루 뒤의 나는 생각이 달라요.</span>
+        </p>
+
+        {/* chat strip */}
+        <div style={{ margin: '48px auto 0', maxWidth: 440, display: 'flex', flexDirection: 'column', gap: 14, textAlign: 'left', paddingBottom: 'clamp(70px, 9vw, 110px)' }}>
+          {bubbles.map((b, i) => {
+            const mine = b.who === 'me';
+            return (
+              <div key={i} style={{ display: 'flex', flexDirection: 'column', alignItems: mine ? 'flex-end' : 'flex-start' }}>
+                <div style={{ fontSize: 10.5, color: L.ink3, marginBottom: 5, display: 'flex', alignItems: 'center', gap: 6 }}>
+                  {!mine && <Mascot size={18} palette="light" mood="happy" shadow={false} />}
+                  {b.time}
+                </div>
+                <div style={{
+                  padding: '12px 16px', borderRadius: mine ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
+                  background: mine ? L.iceLight : L.bg,
+                  border: `1px solid ${mine ? L.ice : L.line}`,
+                  fontSize: 14, color: L.ink, fontWeight: 500, lineHeight: 1.5, maxWidth: 300,
+                }}>
+                  {b.text}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// HOW IT WORKS — 담다 · 기다리다 · 답하다
+// ──────────────────────────────────────────────────────────
+function HowItWorks() {
+  const steps = [
+    {
+      eyebrow: '01 · 담다',
+      title: '고민을 눈덩이에',
+      sub: '살까 말까 고민되는 순간, 10초면 담아둘 수 있어요. 기다릴 시간은 1·3·7일 중에서 고르세요.',
+      visual: <StepVisualAdd />,
+    },
+    {
+      eyebrow: '02 · 기다리다',
+      title: '그동안 잊고 지내세요',
+      sub: '쿨다운 동안 눈덩이가 대신 기억해요. 이 돈이 10년 뒤 얼마가 될 수 있는지도 미리 보여드려요.',
+      visual: <StepVisualWait />,
+    },
+    {
+      eyebrow: '03 · 답하다',
+      title: '내일의 내가 답해요',
+      sub: '시간이 끝나면 다시 물어봐요. 참았다면 절약으로, 샀다면 충분히 고민한 결정으로 — 어느 쪽도 실패가 아니에요.',
+      visual: <StepVisualDecide />,
+    },
+  ];
+  return (
+    <section id="how" style={{ background: L.bg, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+        <SectionHeader eyebrow="HOW IT WORKS" lead="hold · wait · answer." title="참지 않고 모으는 방법." center />
+
+        <div className="features-grid" style={{ marginTop: 56 }}>
+          {steps.map((s, i) => (
+            <article
+              key={i}
+              style={{
+                padding: '32px 28px',
+                background: L.surface, borderRadius: 22, border: `1px solid ${L.line}`,
+                display: 'flex', flexDirection: 'column', gap: 18,
+                position: 'relative', overflow: 'hidden',
+              }}
+            >
+              <div style={{ height: 132, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{s.visual}</div>
+              <div className="font-italiana" style={{ fontSize: 13, color: L.accentDeep, letterSpacing: '0.04em' }}>
+                {s.eyebrow}
+              </div>
+              <div style={{ fontSize: 22, fontWeight: 700, color: L.ink, letterSpacing: '-0.02em', lineHeight: 1.3 }}>
+                {s.title}
+              </div>
+              <div style={{ fontSize: 14, color: L.ink2, lineHeight: 1.65 }}>{s.sub}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// step 1 — 고민 담기 미니 카드
+function StepVisualAdd() {
+  return (
+    <div style={{ width: '100%', maxWidth: 250, padding: '14px 16px', background: L.bg, borderRadius: 16, border: `1px solid ${L.line}` }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ width: 36, height: 36, borderRadius: 10, background: '#db277715', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17 }}>🎧</div>
+        <div>
+          <div style={{ fontSize: 13, fontWeight: 700, color: L.ink }}>에어팟 프로 3세대</div>
+          <div className="tnum" style={{ fontSize: 11.5, color: L.ink2, fontWeight: 600 }}>329,000원</div>
+        </div>
+      </div>
+      <div style={{ marginTop: 12, display: 'flex', gap: 6 }}>
+        {[['1일', false], ['3일', false], ['7일', true]].map(([d, on]) => (
+          <span key={d} style={{
+            flex: 1, textAlign: 'center', padding: '7px 0', borderRadius: 999, fontSize: 11.5, fontWeight: 700,
+            background: on ? L.ink : '#FFFFFF', color: on ? '#fff' : L.ink2, border: `1px solid ${on ? L.ink : L.line}`,
+          }}>{d}</span>
+        ))}
+      </div>
     </div>
   );
 }
 
-function StoreBadge({ kind }) {
-  if (kind === 'apple') {
-    return (
-      <a
-        href="https://apps.apple.com/app/id6778849270"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'inline-flex', alignItems: 'center', gap: 10,
-          padding: '12px 20px', background: L.ink, color: '#fff',
-          textDecoration: 'none', borderRadius: 14,
-          fontFamily: "'Pretendard Variable', Pretendard, system-ui",
-        }}
-      >
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.05 12.04c-.03-2.85 2.32-4.22 2.43-4.29-1.32-1.93-3.39-2.19-4.13-2.22-1.76-.18-3.43 1.04-4.32 1.04-.89 0-2.27-1.01-3.73-.99-1.92.03-3.69 1.12-4.68 2.83-2 3.46-.51 8.58 1.43 11.39.95 1.38 2.08 2.92 3.56 2.87 1.43-.06 1.97-.92 3.7-.92s2.22.92 3.73.89c1.54-.03 2.51-1.4 3.45-2.79 1.09-1.6 1.54-3.16 1.57-3.24-.04-.02-3.01-1.15-3.04-4.57M14.5 4.31c.78-.95 1.31-2.27 1.17-3.58-1.13.05-2.5.75-3.31 1.7-.72.84-1.36 2.18-1.19 3.47 1.27.1 2.55-.64 3.33-1.59"/>
-        </svg>
-        <div style={{ textAlign: 'left', lineHeight: 1 }}>
-          <div style={{ fontSize: 9, color: '#A6C8E4', letterSpacing: '0.04em' }}>Download on the</div>
-          <div style={{ fontSize: 16, fontWeight: 700, marginTop: 2 }}>App Store</div>
-        </div>
-      </a>
-    );
-  }
+// step 2 — 쿨다운 대기
+function StepVisualWait() {
   return (
-    <a
-      href="https://play.google.com/store/apps/details?id=com.snowball.nundeongyi"
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: 'inline-flex', alignItems: 'center', gap: 10,
-        padding: '12px 20px', background: L.surface, color: L.ink,
-        border: `1px solid ${L.line}`, textDecoration: 'none', borderRadius: 14,
-        fontFamily: "'Pretendard Variable', Pretendard, system-ui",
-      }}
-    >
-      <svg width="22" height="22" viewBox="0 0 24 24">
-        <path d="M3.609 1.814L13.792 12 3.61 22.186c-.293-.157-.493-.46-.493-.83V2.643c0-.37.2-.672.493-.83z" fill="#00C853"/>
-        <path d="M16.81 8.97l-2.6 2.6 2.6 2.6 3.78-2.18c.43-.25.43-.85 0-1.1l-3.78-1.92z" fill="#FFD600"/>
-        <path d="M16.81 14.17l-2.6-2.6-10.6 10.62c.27.13.59.13.86-.02l12.34-7z" fill="#FF3D00"/>
-        <path d="M3.61 1.81c-.29.16-.49.46-.49.83v.86l11.09 8.07-2.6-2.6L3.61 1.81z" fill="#2962FF"/>
-      </svg>
-      <div style={{ textAlign: 'left', lineHeight: 1 }}>
-        <div style={{ fontSize: 9, color: L.ink3, letterSpacing: '0.04em' }}>GET IT ON</div>
-        <div style={{ fontSize: 16, fontWeight: 700, marginTop: 2 }}>Google Play</div>
+    <div style={{ width: '100%', maxWidth: 250, textAlign: 'center' }}>
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <Mascot size={54} palette="light" mood="happy" shadow={false} />
+        <div style={{ padding: '6px 14px', borderRadius: 999, background: L.iceLight, border: `1px solid ${L.ice}`, color: L.accentDeep, fontSize: 15, fontWeight: 800 }}>
+          D-2
+        </div>
       </div>
-    </a>
+      <div style={{ marginTop: 14, padding: '11px 14px', background: L.bg, borderRadius: 12, border: `1px solid ${L.line}`, fontSize: 12, color: L.ink2, lineHeight: 1.5 }}>
+        참으면 10년 뒤 <span className="tnum" style={{ color: L.accentDeep, fontWeight: 700 }}>약 65만원</span>
+      </div>
+    </div>
   );
 }
 
-// ──────────────────────────────────────────────────────────
-// TAGLINE — between hero and features
-// ──────────────────────────────────────────────────────────
-function Tagline() {
+// step 3 — 결정 버튼
+function StepVisualDecide() {
   return (
-    <section style={{ background: L.bg, padding: 'clamp(60px, 8vw, 80px) 24px', borderTop: `1px solid ${L.line}` }}>
-      <div style={{ maxWidth: 980, margin: '0 auto', textAlign: 'center' }}>
-        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.ink3, marginBottom: 18 }}>
-          THE PHILOSOPHY
-        </div>
-        <p className="landing-tagline">
-          소비를 참는 앱이 아니라,<br />
-          <span style={{ color: L.accentDeep }}>소비를 고르는 앱입니다.</span>
-        </p>
+    <div style={{ width: '100%', maxWidth: 250 }}>
+      <div style={{ textAlign: 'center', fontSize: 13, fontWeight: 700, color: L.ink, marginBottom: 12 }}>
+        아직도 갖고 싶으세요?
       </div>
-    </section>
-  );
-}
-
-// ──────────────────────────────────────────────────────────
-// FEATURES — 3 value props
-// ──────────────────────────────────────────────────────────
-function Features() {
-  const features = [
-    {
-      eyebrow: '01 · pause',
-      title: '사기 전에 맡겨두세요',
-      sub: '살까 말까 고민되면 1·3·7일 눈덩이에 맡겨두세요. 시간이 끝나면 다시 물어봐요. 참았다면 절약으로, 샀다면 충분히 고민한 결정으로 — 어느 쪽도 실패가 아니에요.',
-      svg: <FeatureIconA />,
-    },
-    {
-      eyebrow: '02 · compare',
-      title: '10초 미래 비교',
-      sub: '금액만 입력하면 이 소비가 10년 뒤 얼마가 될 수 있는지 바로 보여줘요. 한 번의 소비는 한 번으로, 매주 반복이라면 반복대로 — 결론은 당신이 내려요.',
-      svg: <FeatureIconB />,
-    },
-    {
-      eyebrow: '03 · collect',
-      title: '선택이 눈송이로 남아요',
-      sub: '절약 하나하나가 세상에 하나뿐인 눈송이가 돼요. 계절마다 색이 다른 눈송이를 모아 나만의 사계절 도감을 완성해보세요.',
-      svg: <FeatureIconC />,
-    },
-  ];
-  return (
-    <section id="features" style={{ background: L.surface, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <SectionHeader eyebrow="WHAT IT DOES" lead="pause · compare · collect." title="참지 않고 모으는 방법." />
-
-        <div className="features-grid" style={{ marginTop: 56 }}>
-          {features.map((f, i) => (
-            <article
-              key={i}
-              style={{
-                padding: '36px 32px',
-                background: L.bg, borderRadius: 22, border: `1px solid ${L.line}`,
-                display: 'flex', flexDirection: 'column', gap: 22,
-                position: 'relative', overflow: 'hidden',
-              }}
-            >
-              <div style={{ height: 88, display: 'flex', alignItems: 'center' }}>{f.svg}</div>
-              <div className="font-italiana" style={{ fontSize: 13, color: L.accentDeep, letterSpacing: '0.04em' }}>
-                {f.eyebrow}
-              </div>
-              <div style={{ fontSize: 22, fontWeight: 700, color: L.ink, letterSpacing: '-0.02em', lineHeight: 1.3 }}>
-                {f.title}
-              </div>
-              <div style={{ fontSize: 14, color: L.ink2, lineHeight: 1.65 }}>{f.sub}</div>
-            </article>
-          ))}
+      <div style={{ display: 'flex', gap: 8 }}>
+        <div style={{ flex: 1, textAlign: 'center', padding: '11px 0', borderRadius: 12, background: L.ink, color: '#fff', fontSize: 12.5, fontWeight: 700 }}>
+          참았어요 ❄️
         </div>
-
-        <div style={{ marginTop: 28, textAlign: 'center', fontSize: 13.5, color: L.ink3 }}>
-          그리고 든든한 도구들 — <span style={{ color: L.ink2, fontWeight: 600 }}>복리 시뮬레이터 · 금융 목표 · 저축 스케줄 · 주담대 비교</span>
+        <div style={{ flex: 1, textAlign: 'center', padding: '11px 0', borderRadius: 12, background: '#FFFFFF', color: L.ink, fontSize: 12.5, fontWeight: 700, border: `1px solid ${L.line}` }}>
+          샀어요
         </div>
       </div>
-    </section>
+      <div style={{ marginTop: 10, textAlign: 'center', fontSize: 11, color: L.ink3 }}>
+        어느 쪽도 실패가 아니에요
+      </div>
+    </div>
   );
 }
 
@@ -381,51 +437,10 @@ function SectionHeader({ eyebrow, lead, title, center }) {
   );
 }
 
-function FeatureIconA() {
-  // a coin-like circle + droplet
-  return (
-    <svg width="88" height="88" viewBox="0 0 88 88">
-      <circle cx="44" cy="44" r="32" fill="none" stroke={L.accent} strokeWidth="1" />
-      <circle cx="44" cy="44" r="22" fill={L.iceLight} />
-      <text x="44" y="50" textAnchor="middle" fontSize="22" fill={L.accentDeep} fontFamily="Italiana, serif">₩</text>
-      <circle cx="68" cy="22" r="4" fill={L.accentDeep} />
-      <circle cx="74" cy="34" r="2" fill={L.accent} />
-    </svg>
-  );
-}
-function FeatureIconB() {
-  // chart up
-  return (
-    <svg width="88" height="88" viewBox="0 0 88 88">
-      <path d="M10 70 L10 18" stroke={L.ink3} strokeWidth="1" />
-      <path d="M10 70 L80 70" stroke={L.ink3} strokeWidth="1" />
-      <path d="M10 62 C 24 60, 30 50, 42 42 S 64 28, 80 14" fill="none" stroke={L.accentDeep} strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M10 70 C 24 66, 30 56, 42 48 S 64 32, 80 14 L 80 70 Z" fill={L.accent} fillOpacity="0.18" />
-      <circle cx="80" cy="14" r="4" fill={L.accentDeep} />
-    </svg>
-  );
-}
-function FeatureIconC() {
-  // snowflake — 눈송이 도감
-  const arms = [0, 60, 120, 180, 240, 300];
-  return (
-    <svg width="88" height="88" viewBox="0 0 88 88">
-      <circle cx="44" cy="44" r="32" fill="none" stroke={L.accent} strokeWidth="1" strokeDasharray="3 4" />
-      {arms.map((deg) => (
-        <g key={deg} transform={`rotate(${deg} 44 44)`}>
-          <path d="M44 44 L44 18" stroke={L.accentDeep} strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M44 26 L39 21 M44 26 L49 21" stroke={L.accentDeep} strokeWidth="1.2" strokeLinecap="round" fill="none" />
-        </g>
-      ))}
-      <circle cx="44" cy="44" r="5" fill={L.iceLight} stroke={L.accentDeep} strokeWidth="1" />
-    </svg>
-  );
-}
-
 // ──────────────────────────────────────────────────────────
-// MAGIC MOMENT — narrative section with mascot trail
+// DECISION MOMENT — navy narrative + 결정 목업
 // ──────────────────────────────────────────────────────────
-function MagicMoment() {
+function DecisionMoment() {
   return (
     <section style={{ background: L.navy, color: '#fff', padding: 'clamp(80px, 10vw, 120px) 24px', overflow: 'hidden', position: 'relative' }}>
       <div style={{ position: 'absolute', inset: 0, opacity: 0.5 }}>
@@ -463,7 +478,6 @@ function MagicMoment() {
           </div>
         </div>
 
-        {/* Right: phone — mockup */}
         <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
           <div style={{ transform: 'rotate(3deg)', boxShadow: '0 40px 80px rgba(0,0,0,0.4)', borderRadius: 44 }}>
             <MicroMomentMockup />
@@ -520,11 +534,131 @@ function MicroMomentMockup() {
 }
 
 // ──────────────────────────────────────────────────────────
-// SIMULATOR SHOWCASE
+// COLLECT — 눈송이 도감 (시즌 컬렉션)
 // ──────────────────────────────────────────────────────────
-function SimulatorShow() {
+function Snowflake({ size = 56, color = '#7DB4DD', seed = 0 }) {
+  // 결정형 파라미터 — seed마다 가지 위치·길이가 달라 서로 다른 눈송이
+  const b1 = 34 + (seed % 3) * 5;         // 안쪽 가지 위치 (중심으로부터 %)
+  const b2 = 62 + (seed % 2) * 8;         // 바깥 가지 위치
+  const blen = 9 + (seed % 4) * 2;        // 가지 길이
+  const tip = seed % 2 === 0;             // 끝 장식 (점/다이아)
+  const arms = [0, 60, 120, 180, 240, 300];
+  const armEnd = 12;                       // 팔 끝 y (center 50 기준 위쪽)
   return (
-    <section id="simulator" style={{ background: L.surface, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
+    <svg width={size} height={size} viewBox="0 0 100 100">
+      {arms.map((deg) => (
+        <g key={deg} transform={`rotate(${deg} 50 50)`}>
+          <path d={`M50 50 L50 ${armEnd}`} stroke={color} strokeWidth="2.4" strokeLinecap="round" />
+          <path d={`M50 ${b1} L${50 - blen} ${b1 - blen} M50 ${b1} L${50 + blen} ${b1 - blen}`} stroke={color} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+          <path d={`M50 ${100 - b2} L${50 - blen * 0.7} ${100 - b2 - blen * 0.7} M50 ${100 - b2} L${50 + blen * 0.7} ${100 - b2 - blen * 0.7}`} stroke={color} strokeWidth="1.5" strokeLinecap="round" fill="none" />
+          {tip
+            ? <circle cx="50" cy={armEnd - 1} r="2.4" fill={color} />
+            : <path d={`M50 ${armEnd - 5} L53 ${armEnd - 1} L50 ${armEnd + 3} L47 ${armEnd - 1} Z`} fill={color} />}
+        </g>
+      ))}
+      <circle cx="50" cy="50" r="4.5" fill="#fff" stroke={color} strokeWidth="1.6" />
+    </svg>
+  );
+}
+
+function Collect() {
+  const seasons = [
+    { name: '봄', en: 'spring', color: L.spring, seeds: [1, 4] },
+    { name: '여름', en: 'summer', color: L.summer, seeds: [2, 7] },
+    { name: '가을', en: 'autumn', color: L.autumn, seeds: [3, 6] },
+    { name: '겨울', en: 'winter', color: L.winter, seeds: [0, 5] },
+  ];
+  return (
+    <section id="collect" style={{ background: L.surface, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
+      <div className="landing-section-2col">
+        <div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, marginBottom: 16 }}>
+            SNOWFLAKE COLLECTION
+          </div>
+          <div className="font-italiana" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: L.accentDeep, letterSpacing: '0.02em', marginBottom: 10 }}>
+            one of a kind,
+          </div>
+          <h2 className="landing-h2">
+            당신의 선택이<br />눈송이로 남아요.
+          </h2>
+          <p style={{ marginTop: 24, fontSize: 'clamp(14px, 1.4vw, 16px)', color: L.ink2, lineHeight: 1.65, maxWidth: 480 }}>
+            절약 하나하나가 세상에 하나뿐인 눈송이가 돼요. 금액이 클수록 더 화려하게,
+            계절이 바뀌면 색도 달라져요. 봄의 벚꽃빛부터 겨울의 얼음빛까지 —
+            나만의 사계절 도감을 완성해보세요.
+          </p>
+
+          <ul style={{ marginTop: 24, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[
+              ['세상에 하나뿐', '기록마다 모양이 다른 결정 생성'],
+              ['사계절 팔레트', '계절 따라 달라지는 색감'],
+              ['도감 완성', '모을수록 채워지는 나의 겨울 왕국'],
+            ].map(([k, v], i) => (
+              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: L.accentDeep, marginTop: 8, flexShrink: 0 }} />
+                <div>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: L.ink }}>{k}</span>
+                  <span style={{ fontSize: 14, color: L.ink3, marginLeft: 8 }}>{v}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 도감 카드 */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{
+            width: '100%', maxWidth: 420, padding: '28px 26px',
+            background: L.bg, borderRadius: 26, border: `1px solid ${L.line}`,
+            boxShadow: '0 30px 60px rgba(13,40,68,0.10)', transform: 'rotate(1.5deg)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', color: L.ink3 }}>MY COLLECTION</div>
+                <div className="font-italiana" style={{ fontSize: 22, color: L.ink, marginTop: 3 }}>four seasons.</div>
+              </div>
+              <div className="tnum" style={{ fontSize: 12, color: L.ink3, fontWeight: 600 }}>23 / 48</div>
+            </div>
+
+            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 14 }}>
+              {seasons.map((s) => (
+                <div key={s.en} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '12px 14px', background: L.surface, borderRadius: 16, border: `1px solid ${L.line}` }}>
+                  <div style={{ width: 52, flexShrink: 0 }}>
+                    <div style={{ fontSize: 13, fontWeight: 800, color: s.color }}>{s.name}</div>
+                    <div className="font-italiana" style={{ fontSize: 11, color: L.ink3 }}>{s.en}</div>
+                  </div>
+                  <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                    {s.seeds.map((seed) => (
+                      <div key={seed} style={{ animation: seed % 2 ? 'slow-float 5s ease-in-out infinite' : 'none' }}>
+                        <Snowflake size={46} color={s.color} seed={seed} />
+                      </div>
+                    ))}
+                    {/* 미획득 실루엣 */}
+                    <div style={{ opacity: 0.18 }}>
+                      <Snowflake size={46} color={L.ink3} seed={s.seeds[0] + 2} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
+// TOOLS — 든든한 도구들 (시뮬레이터 + 목표·저축·주담대)
+// ──────────────────────────────────────────────────────────
+function Tools() {
+  const tools = [
+    ['복리 시뮬레이터', '월 저축·수익률·기간을 슬라이더로 — 비관/기대/낙관을 한 화면에서'],
+    ['금융 목표 역산', '목표 금액과 날짜를 넣으면 월 필요 저축액을 계산'],
+    ['저축 스케줄', '적금·예금·청약을 등록하면 만기와 이자를 자동 추적'],
+    ['주담대 비교', '체증식 vs 원리금균등, 손익분기 수익률까지 로컬 계산'],
+  ];
+  return (
+    <section id="tools" style={{ background: L.bg, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
       <div className="landing-section-2col">
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div style={{ transform: 'rotate(-2deg)', boxShadow: '0 30px 60px rgba(13,40,68,0.15)', borderRadius: 44 }}>
@@ -533,26 +667,21 @@ function SimulatorShow() {
         </div>
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, marginBottom: 16 }}>
-            SCENARIO SIMULATOR
+            AND SOLID TOOLS
           </div>
           <div className="font-italiana" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: L.accentDeep, letterSpacing: '0.02em', marginBottom: 10 }}>
             in 10 years,
           </div>
           <h2 className="landing-h2">
-            당신의 눈덩이는<br />
-            얼마나 커져 있을까요?
+            절약한 돈이 굴러갈<br />자리도 준비돼 있어요.
           </h2>
           <p style={{ marginTop: 24, fontSize: 'clamp(14px, 1.4vw, 16px)', color: L.ink2, lineHeight: 1.65, maxWidth: 480 }}>
-            월 저축, 예상 수익률, 운용 기간을 슬라이더 하나로 조정하면서 비관 / 기대 / 낙관 시나리오를 동시에 확인하세요. 가장 마음에 드는 시나리오는 대시보드에 고정.
+            참아낸 돈이 그냥 사라지지 않도록 — 목표에 연결하고, 미래로 굴려보고,
+            계획대로 가고 있는지 확인하는 도구들이 함께 있어요.
           </p>
 
-          {/* Feature bullets */}
-          <ul style={{ marginTop: 24, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {[
-              ['연 수익률 1~12%', '시장 상황에 맞게 조정 가능'],
-              ['최대 30년', '단기 비상금부터 은퇴까지'],
-              ['시나리오 핀', '대시보드에 즉시 반영'],
-            ].map(([k, v], i) => (
+          <ul style={{ marginTop: 24, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {tools.map(([k, v], i) => (
               <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                 <span style={{ width: 6, height: 6, borderRadius: '50%', background: L.accentDeep, marginTop: 8, flexShrink: 0 }} />
                 <div>
@@ -565,64 +694,6 @@ function SimulatorShow() {
         </div>
       </div>
     </section>
-  );
-}
-
-// ──────────────────────────────────────────────────────────
-// GOALS SHOWCASE
-// ──────────────────────────────────────────────────────────
-function GoalsShow() {
-  return (
-    <section id="goals" style={{ background: L.bg, padding: 'clamp(80px, 10vw, 120px) 24px' }}>
-      <div className="landing-section-2col">
-        <div>
-          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, marginBottom: 16 }}>
-            GOALS
-          </div>
-          <div className="font-italiana" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: L.accentDeep, letterSpacing: '0.02em', marginBottom: 10 }}>
-            your dreams,
-          </div>
-          <h2 className="landing-h2">
-            한 곳에서,<br />같은 페이스로.
-          </h2>
-          <p style={{ marginTop: 24, fontSize: 'clamp(14px, 1.4vw, 16px)', color: L.ink2, lineHeight: 1.65, maxWidth: 480 }}>
-            내 집 · 비상금 · 여행 · 은퇴. 모든 목표가 한 화면에. 어디까지 왔는지, 얼마나 남았는지, 언제 도달할지 — 명확하게.
-          </p>
-
-          {/* Inline goal cards preview */}
-          <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 10 }}>
-            <InlineGoal tag="HOUSING" color="#3F7AB0" name="내 집 마련" saved="4,130만원" target="8,000만원" pct={51.6} />
-            <InlineGoal tag="EMERGENCY" color="#D9A04E" name="비상금" saved="850만원" target="1,000만원" pct={85} />
-            <InlineGoal tag="TRAVEL" color="#C97A5D" name="유럽 한 달 살기" saved="120만원" target="800만원" pct={15} />
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <div style={{ transform: 'rotate(2deg)', boxShadow: '0 30px 60px rgba(13,40,68,0.15)', borderRadius: 44 }}>
-            <GoalFlow />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function InlineGoal({ tag, color, name, saved, target, pct }) {
-  return (
-    <div style={{ padding: '14px 18px', background: L.surface, borderRadius: 14, border: `1px solid ${L.line}`, display: 'flex', flexDirection: 'column', gap: 6 }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <span style={{ fontSize: 9.5, fontWeight: 700, color, letterSpacing: '0.1em', padding: '3px 8px', background: color + '15', borderRadius: 4 }}>{tag}</span>
-        <span style={{ fontSize: 14, fontWeight: 700, color: L.ink }}>{name}</span>
-        <span className="font-italiana" style={{ marginLeft: 'auto', fontSize: 18, color, letterSpacing: '0.01em' }}>{pct.toFixed(0)}%</span>
-      </div>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, fontSize: 12 }}>
-        <span className="tnum" style={{ fontWeight: 700, color: L.ink }}>{saved}</span>
-        <span style={{ color: L.ink3 }}>/ {target}</span>
-      </div>
-      <div style={{ height: 4, background: L.iceLight, borderRadius: 999, overflow: 'hidden' }}>
-        <div style={{ height: '100%', width: pct + '%', background: color }} />
-      </div>
-    </div>
   );
 }
 
@@ -697,7 +768,7 @@ function FinalCTA() {
           <p style={{ marginTop: 20, fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, maxWidth: 380 }}>
             가입 30초 · 고민 담기 10초 — 내일의 당신이 답해줄 거예요.
           </p>
-          <div style={{ marginTop: 32, display: 'flex', gap: 12 }}>
+          <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <StoreBadge kind="apple" />
             <StoreBadge kind="google" />
           </div>
@@ -747,7 +818,7 @@ function Footer() {
         </div>
       )}
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: 40 }}>
+      <div className="footer-grid">
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
             <Mascot size={36} palette="light" mood="happy" shadow={false} />
@@ -761,7 +832,7 @@ function Footer() {
           </p>
         </div>
         <FooterCol title="제품" links={[
-          ['기능', '#features'],
+          ['사용법', '#how'],
           ['다운로드', '#download'],
         ]} />
         <FooterCol title="회사" links={[
@@ -811,4 +882,4 @@ function FooterCol({ title, links }) {
   );
 }
 
-Object.assign(window, { Nav, Hero, Tagline, Features, MagicMoment, SimulatorShow, GoalsShow, FAQ, FinalCTA, Footer });
+Object.assign(window, { Nav, Hero, Empathy, HowItWorks, DecisionMoment, Collect, Tools, FAQ, FinalCTA, Footer });
