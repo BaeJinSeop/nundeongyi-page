@@ -8,6 +8,7 @@ function Phone({ children, dark = false, bg, w = 360, h = 780 }) {
     <div
       style={{
         width: w,
+        maxWidth: 'calc(100vw - 44px)',
         height: h,
         borderRadius: 44,
         overflow: 'hidden',

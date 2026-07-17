@@ -102,12 +102,12 @@ function Hero() {
           }} />
 
           {/* floating mascot */}
-          <div style={{ position: 'absolute', top: -18, left: 'calc(50% - 300px)', zIndex: 5, animation: 'slow-float 4s ease-in-out infinite' }}>
+          <div className="hero-float" style={{ position: 'absolute', top: -18, left: 'calc(50% - 300px)', zIndex: 5, animation: 'slow-float 4s ease-in-out infinite' }}>
             <Mascot size={120} palette="light" mood="happy" />
           </div>
 
           {/* quote badge */}
-          <div style={{
+          <div className="hero-float" style={{
             position: 'absolute', top: 130, left: 'calc(50% + 170px)', zIndex: 6,
             padding: '14px 18px', background: L.surface, borderRadius: 16,
             border: `1px solid ${L.line}`, boxShadow: '0 12px 28px rgba(13,40,68,0.10)',
@@ -711,7 +711,7 @@ function FAQ() {
   ];
   const [open, setOpen] = React.useState(0);
   return (
-    <section id="faq" style={{ background: L.surface, padding: '120px 40px', borderTop: `1px solid ${L.line}` }}>
+    <section id="faq" style={{ background: L.surface, padding: 'clamp(70px, 10vw, 120px) clamp(20px, 4vw, 40px)', borderTop: `1px solid ${L.line}` }}>
       <div style={{ maxWidth: 760, margin: '0 auto' }}>
         <SectionHeader eyebrow="FAQ" lead="frequently asked." title="자주 묻는 질문." center />
         <div style={{ marginTop: 48, display: 'flex', flexDirection: 'column', gap: 4 }}>
@@ -746,8 +746,8 @@ function FAQ() {
 // ──────────────────────────────────────────────────────────
 function FinalCTA() {
   return (
-    <section id="download" style={{ background: L.bg2, padding: '120px 40px' }}>
-      <div style={{ maxWidth: 980, margin: '0 auto', padding: '64px 56px', background: L.navy, borderRadius: 32, position: 'relative', overflow: 'hidden', color: '#fff' }}>
+    <section id="download" style={{ background: L.bg2, padding: 'clamp(60px, 10vw, 120px) clamp(20px, 4vw, 40px)' }}>
+      <div style={{ maxWidth: 980, margin: '0 auto', padding: 'clamp(36px, 6vw, 64px) clamp(24px, 5vw, 56px)', background: L.navy, borderRadius: 32, position: 'relative', overflow: 'hidden', color: '#fff' }}>
         <div style={{ position: 'absolute', inset: 0, opacity: 0.4 }}>
           <SnowField count={18} color="rgba(136,208,255,0.4)" />
         </div>
@@ -762,7 +762,7 @@ function FinalCTA() {
           <div className="font-italiana" style={{ fontSize: 26, color: L.accent, letterSpacing: '0.02em', marginBottom: 10 }}>
             hold on, snowball.
           </div>
-          <h2 style={{ margin: 0, fontSize: 48, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
+          <h2 style={{ margin: 0, fontSize: 'clamp(28px, 5.5vw, 48px)', fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
             다음 충동구매,<br />눈덩이에 맡겨보세요.
           </h2>
           <p style={{ marginTop: 20, fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, maxWidth: 380 }}>
@@ -785,7 +785,7 @@ function Footer() {
   const [showAbout, setShowAbout] = React.useState(false);
 
   return (
-    <footer style={{ background: L.bg, padding: '60px 40px 36px', borderTop: `1px solid ${L.line}` }}>
+    <footer style={{ background: L.bg, padding: '60px clamp(20px, 4vw, 40px) 36px', borderTop: `1px solid ${L.line}` }}>
       {showAbout && (
         <div
           onClick={() => setShowAbout(false)}

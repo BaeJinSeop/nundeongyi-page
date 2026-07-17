@@ -197,7 +197,12 @@ html, body {
   .landing-nav-links { gap: 8px; }
   .landing-brand-sub { display: none; }
   .landing-hero-grid { padding: 100px 20px 40px; }
+  /* Hero의 떠있는 마스코트·인용 배지 — 좁은 화면에선 목업과 겹쳐 숨김 */
+  .hero-float { display: none; }
 }
+
+/* 장식용 절대배치 요소가 만드는 가로 스크롤 차단 */
+html, body { overflow-x: clip; }
 
 /* Hero — responsive type with clamp() */
 .landing-h1 {
