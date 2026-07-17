@@ -129,7 +129,7 @@ function Hero() {
               borderRadius: 44,
             }}
           >
-            <SafePrototype heroKind="solo" fontKey="italiana" />
+            <ConsiderationMockup />
           </div>
 
           {/* Small badge / quote */}
@@ -150,6 +150,80 @@ function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+// ─── Hero mockup — 삼고초려 [참는 중] 화면 (1.1 실화면 재현) ───
+function ConsiderationMockup() {
+  return (
+    <Phone bg="#F1F6FB">
+      <SnowField count={16} color="rgba(125,180,221,0.35)" />
+      <div style={{ position: 'absolute', inset: 0, paddingTop: 64, padding: '64px 22px 24px', display: 'flex', flexDirection: 'column' }}>
+        {/* Header */}
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.2em', color: L.ink3 }}>MICRO ACTION</div>
+          <div className="font-italiana" style={{ fontSize: 21, color: L.ink, marginTop: 2 }}>money choices.</div>
+        </div>
+
+        {/* Tabs */}
+        <div style={{ marginTop: 18, display: 'flex', gap: 8 }}>
+          {[['참는 중', 2, true], ['절약함', 9, false]].map(([label, n, on]) => (
+            <div key={label} style={{
+              flex: 1, textAlign: 'center', padding: '10px 0', borderRadius: 999,
+              background: on ? L.ink : '#FFFFFF', color: on ? '#fff' : L.ink2,
+              fontSize: 13, fontWeight: 700, border: `1px solid ${on ? L.ink : L.line}`,
+            }}>
+              {label} <span style={{ opacity: 0.6, fontWeight: 600 }}>{n}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Today decision banner */}
+        <div style={{ marginTop: 14, padding: '11px 14px', background: L.iceLight, borderRadius: 12, border: `1px solid ${L.ice}`, fontSize: 12, color: L.accentDeep, fontWeight: 600 }}>
+          ⏰ 오늘 다시 물어볼 고민이 1개 있어요
+        </div>
+
+        {/* Consideration cards */}
+        <div style={{ marginTop: 12, display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <ConsiderCard emoji="🎧" name="에어팟 프로 3세대" amount="329,000원" dday="D-2" ddayColor={L.accentDeep} note="7일 중 5일 참는 중" />
+          <ConsiderCard emoji="🏕️" name="캠핑 릴렉스 체어" amount="89,000원" dday="D-DAY" ddayColor={L.warm} note="오늘 결정하는 날이에요" highlight />
+        </div>
+
+        {/* Future compare hint */}
+        <div style={{ marginTop: 12, padding: '13px 14px', background: '#FFFFFF', borderRadius: 12, border: `1px solid ${L.line}` }}>
+          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: '0.12em', color: L.ink3 }}>10-SECOND FUTURE</div>
+          <div style={{ marginTop: 5, fontSize: 12.5, color: L.ink2, lineHeight: 1.5 }}>
+            둘 다 참으면 10년 뒤 <span className="tnum" style={{ color: L.accentDeep, fontWeight: 700 }}>약 82만원</span>이 될 수 있어요
+          </div>
+        </div>
+
+        <div style={{ flex: 1 }} />
+        <PrimaryCTA theme="navy">+ 고민 담기</PrimaryCTA>
+      </div>
+    </Phone>
+  );
+}
+
+function ConsiderCard({ emoji, name, amount, dday, ddayColor, note, highlight }) {
+  return (
+    <div style={{
+      padding: '13px 14px', background: '#FFFFFF', borderRadius: 14,
+      border: `1px solid ${highlight ? ddayColor + '55' : L.line}`,
+      display: 'flex', alignItems: 'center', gap: 12,
+    }}>
+      <div style={{ width: 40, height: 40, borderRadius: 12, background: '#db277715', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 19, flexShrink: 0 }}>
+        {emoji}
+      </div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontSize: 13.5, fontWeight: 700, color: L.ink, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{name}</div>
+        <div style={{ marginTop: 2, fontSize: 11.5, color: L.ink3 }}>
+          <span className="tnum" style={{ fontWeight: 600, color: L.ink2 }}>{amount}</span> · {note}
+        </div>
+      </div>
+      <span style={{ padding: '4px 9px', borderRadius: 999, background: ddayColor + '15', color: ddayColor, fontSize: 11, fontWeight: 800, flexShrink: 0 }}>
+        {dday}
+      </span>
+    </div>
   );
 }
 
@@ -282,6 +356,10 @@ function Features() {
             </article>
           ))}
         </div>
+
+        <div style={{ marginTop: 28, textAlign: 'center', fontSize: 13.5, color: L.ink3 }}>
+          그리고 든든한 도구들 — <span style={{ color: L.ink2, fontWeight: 600 }}>복리 시뮬레이터 · 금융 목표 · 저축 스케줄 · 주담대 비교</span>
+        </div>
       </div>
     </section>
   );
@@ -396,28 +474,44 @@ function MagicMoment() {
   );
 }
 
-// Static "magic moment" phone for landing
+// Static "magic moment" phone — 쿨다운 종료, 내일의 내가 묻는 순간
 function MicroMomentMockup() {
   return (
     <Phone bg="#F1F6FB">
       <SnowField count={10} color="rgba(125,180,221,0.28)" />
-      <div style={{ position:'absolute', inset:0, paddingTop:80, paddingBottom:28, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center' }}>
-        <div style={{ padding: '0 32px', textAlign: 'center' }}>
+      <div style={{ position:'absolute', inset:0, paddingTop:70, paddingBottom:28, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center' }}>
+        <div style={{ padding: '0 28px', textAlign: 'center', width: '100%' }}>
           <div style={{ animation:'pixel-pulse 2.5s ease-in-out infinite' }}>
-            <Mascot size={140} palette="light" mood="happy" />
+            <Mascot size={120} palette="light" mood="happy" />
           </div>
-          <div className="font-italiana" style={{ marginTop:22, fontSize:22, color:L.accentDeep, letterSpacing:'0.02em' }}>well done.</div>
-          <div style={{ marginTop:6, fontSize:24, fontWeight:700, color:L.ink, letterSpacing:'-0.02em', lineHeight:1.25 }}>
-            <span className="tnum">4,500</span>원이<br />눈덩이로 굴러갔어요.
+          <div className="font-italiana" style={{ marginTop:18, fontSize:22, color:L.accentDeep, letterSpacing:'0.02em' }}>still want it?</div>
+          <div style={{ marginTop:6, fontSize:22, fontWeight:700, color:L.ink, letterSpacing:'-0.02em', lineHeight:1.3 }}>
+            하루가 지났어요.<br />아직도 갖고 싶으세요?
           </div>
-          <div style={{ marginTop:24, padding:'18px 22px', background:'#FFFFFF', borderRadius:18, border:`1px solid ${L.line}` }}>
-            <div style={{ fontSize:11, color:L.ink3, letterSpacing:'0.12em', fontWeight:600 }}>YOUR GOAL · 내 집 마련</div>
-            <div style={{ marginTop:6, fontSize:13, color:L.ink2 }}>목표 도달이</div>
-            <div style={{ marginTop:4, display:'flex', alignItems:'baseline', justifyContent:'center', gap:6 }}>
-              <span className="font-italiana" style={{ fontSize:44, color:L.accentDeep, lineHeight:1 }}>3</span>
-              <span style={{ fontSize:14, color:L.ink2, fontWeight:600 }}>일</span>
-              <span style={{ fontSize:14, color:L.ink, fontWeight:700 }}>앞당겨졌어요</span>
+
+          <div style={{ marginTop:20, padding:'16px 20px', background:'#FFFFFF', borderRadius:18, border:`1px solid ${L.line}`, textAlign:'left' }}>
+            <div style={{ display:'flex', alignItems:'center', gap:12 }}>
+              <div style={{ width:42, height:42, borderRadius:12, background:'#db277715', display:'flex', alignItems:'center', justifyContent:'center', fontSize:20 }}>🎧</div>
+              <div>
+                <div style={{ fontSize:14, fontWeight:700, color:L.ink }}>에어팟 프로 3세대</div>
+                <div className="tnum" style={{ marginTop:2, fontSize:12.5, color:L.ink2, fontWeight:600 }}>329,000원</div>
+              </div>
             </div>
+            <div style={{ marginTop:12, paddingTop:12, borderTop:`1px solid ${L.lineSoft}`, fontSize:12, color:L.ink2, lineHeight:1.5 }}>
+              참으면 10년 뒤 <span className="tnum" style={{ color:L.accentDeep, fontWeight:700 }}>약 65만원</span>이 될 수 있어요
+            </div>
+          </div>
+
+          <div style={{ marginTop:16, display:'flex', gap:10 }}>
+            <div style={{ flex:1, padding:'14px 0', borderRadius:14, background:L.ink, color:'#fff', fontSize:14, fontWeight:700 }}>
+              참았어요 ❄️
+            </div>
+            <div style={{ flex:1, padding:'14px 0', borderRadius:14, background:'#FFFFFF', color:L.ink, fontSize:14, fontWeight:700, border:`1px solid ${L.line}` }}>
+              샀어요
+            </div>
+          </div>
+          <div style={{ marginTop:12, fontSize:11.5, color:L.ink3 }}>
+            어느 쪽을 골라도 괜찮아요 — 실패가 아니니까요.
           </div>
         </div>
       </div>
