@@ -70,17 +70,17 @@ function Hero() {
         {/* Left: copy */}
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, textTransform: 'uppercase', marginBottom: 24 }}>
-            micro-saving · scenario planner
+            mindful spending · snowball planner
           </div>
           <h1 className="landing-h1">
-            작은 눈 한 톨이<br />
+            사기 전에,<br />
             <span className="font-italiana" style={{ fontWeight: 400, letterSpacing: '-0.005em', color: L.accentDeep }}>
-              거대한 부
+              하루만
             </span>
-            가 됩니다.
+            {' '}맡겨두세요.
           </h1>
           <p className="landing-lead" style={{ marginTop: 28, maxWidth: 540 }}>
-            오늘 아낀 커피 한 잔이 10년 뒤 얼마가 되는지 — 매일의 작은 절약을 미래의 자산으로 굴려주는 시나리오 플래너.
+            참으라고 하지 않아요. 눈덩이에 맡겨두면 내일의 내가 다시 물어봐요 — 내일도 필요하면 그때 사도 늦지 않으니까요.
           </p>
 
           {/* CTAs */}
@@ -142,9 +142,9 @@ function Hero() {
               maxWidth: 220, transform: 'rotate(2deg)',
             }}
           >
-            <div className="font-italiana" style={{ fontSize: 14, color: L.accentDeep, lineHeight: 1, letterSpacing: '0.02em' }}>well done.</div>
+            <div className="font-italiana" style={{ fontSize: 14, color: L.accentDeep, lineHeight: 1, letterSpacing: '0.02em' }}>hold on.</div>
             <div style={{ marginTop: 4, fontSize: 12, color: L.ink, fontWeight: 700, lineHeight: 1.4 }}>
-              "오늘의 절약이 목표를 <span style={{ color: L.accentDeep }}>3일</span> 앞당겼어요"
+              "에어팟, 내일 다시 물어볼게요 <span style={{ color: L.accentDeep }}>D-1</span>"
             </div>
           </div>
         </div>
@@ -223,8 +223,8 @@ function Tagline() {
           THE PHILOSOPHY
         </div>
         <p className="landing-tagline">
-          매일 굴리는 작은 눈,<br />
-          <span style={{ color: L.accentDeep }}>그것이 가장 큰 차이를 만듭니다.</span>
+          소비를 참는 앱이 아니라,<br />
+          <span style={{ color: L.accentDeep }}>소비를 고르는 앱입니다.</span>
         </p>
       </div>
     </section>
@@ -237,28 +237,28 @@ function Tagline() {
 function Features() {
   const features = [
     {
-      eyebrow: '01 · capture',
-      title: '오늘의 절약을 한 번에',
-      sub: '커피, 도시락, 택시. 4초 안에 기록하면 매일의 작은 절약이 데이터가 됩니다.',
+      eyebrow: '01 · pause',
+      title: '사기 전에 맡겨두세요',
+      sub: '살까 말까 고민되면 1·3·7일 눈덩이에 맡겨두세요. 시간이 끝나면 다시 물어봐요. 참았다면 절약으로, 샀다면 충분히 고민한 결정으로 — 어느 쪽도 실패가 아니에요.',
       svg: <FeatureIconA />,
     },
     {
-      eyebrow: '02 · roll',
-      title: '미래로 굴려보세요',
-      sub: '월 저축, 수익률, 기간 — 시나리오를 슬라이더로 비교하며 비관/기대/낙관까지 한 화면에서.',
+      eyebrow: '02 · compare',
+      title: '10초 미래 비교',
+      sub: '금액만 입력하면 이 소비가 10년 뒤 얼마가 될 수 있는지 바로 보여줘요. 한 번의 소비는 한 번으로, 매주 반복이라면 반복대로 — 결론은 당신이 내려요.',
       svg: <FeatureIconB />,
     },
     {
-      eyebrow: '03 · arrive',
-      title: '목표가 더 빨리 옵니다',
-      sub: '매번 절약할 때마다 목표 도달일이 얼마나 앞당겨졌는지 알려줍니다. 가장 큰 동기부여.',
+      eyebrow: '03 · collect',
+      title: '선택이 눈송이로 남아요',
+      sub: '절약 하나하나가 세상에 하나뿐인 눈송이가 돼요. 계절마다 색이 다른 눈송이를 모아 나만의 사계절 도감을 완성해보세요.',
       svg: <FeatureIconC />,
     },
   ];
   return (
     <section id="features" style={{ background: L.surface, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <SectionHeader eyebrow="WHAT IT DOES" lead="three steps." title="작은 절약을 자산으로 굴리는 방법." />
+        <SectionHeader eyebrow="WHAT IT DOES" lead="pause · compare · collect." title="참지 않고 모으는 방법." />
 
         <div className="features-grid" style={{ marginTop: 56 }}>
           {features.map((f, i) => (
@@ -328,14 +328,18 @@ function FeatureIconB() {
   );
 }
 function FeatureIconC() {
-  // flag/target
+  // snowflake — 눈송이 도감
+  const arms = [0, 60, 120, 180, 240, 300];
   return (
     <svg width="88" height="88" viewBox="0 0 88 88">
       <circle cx="44" cy="44" r="32" fill="none" stroke={L.accent} strokeWidth="1" strokeDasharray="3 4" />
-      <circle cx="44" cy="44" r="20" fill={L.iceLight} stroke={L.accentDeep} strokeWidth="1" />
-      <circle cx="44" cy="44" r="6" fill={L.accentDeep} />
-      <path d="M44 16 L44 44" stroke={L.ink} strokeWidth="1" strokeDasharray="2 3" />
-      <path d="M44 16 L62 22 L44 28 Z" fill={L.ink} />
+      {arms.map((deg) => (
+        <g key={deg} transform={`rotate(${deg} 44 44)`}>
+          <path d="M44 44 L44 18" stroke={L.accentDeep} strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M44 26 L39 21 M44 26 L49 21" stroke={L.accentDeep} strokeWidth="1.2" strokeLinecap="round" fill="none" />
+        </g>
+      ))}
+      <circle cx="44" cy="44" r="5" fill={L.iceLight} stroke={L.accentDeep} strokeWidth="1" />
     </svg>
   );
 }
@@ -356,15 +360,15 @@ function MagicMoment() {
             THE MAGIC MOMENT
           </div>
           <div className="font-italiana" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: L.accent, letterSpacing: '0.02em', marginBottom: 10 }}>
-            ₩4,500 saved →
+            still want it?
           </div>
           <h2 className="landing-h2 on-dark">
-            오늘의 절약이<br />
-            <span className="font-italiana" style={{ fontWeight: 400, color: L.accent, letterSpacing: '-0.005em' }}>3일</span>
-            을 앞당깁니다.
+            하루가 지나면,<br />
+            <span className="font-italiana" style={{ fontWeight: 400, color: L.accent, letterSpacing: '-0.005em' }}>내일의 내</span>
+            가 물어봐요.
           </h2>
           <p style={{ marginTop: 24, fontSize: 'clamp(14px, 1.4vw, 16px)', color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, maxWidth: 480 }}>
-            매번 절약할 때마다 목표 도달일이 얼마나 당겨졌는지 즉시 알려드려요.
+            참았다면 그 돈은 절약으로 굴러가고, 목표 도달일이 얼마나 당겨졌는지 즉시 보여드려요.
             추상적인 숫자가 아니라, 손에 잡히는 시간으로.
           </p>
 
@@ -533,7 +537,8 @@ function InlineGoal({ tag, color, name, saved, target, pct }) {
 // ──────────────────────────────────────────────────────────
 function FAQ() {
   const items = [
-    { q: '눈덩이는 어떤 앱인가요?', a: '오늘 절약한 작은 금액이 미래의 자산이 되는 과정을 시각화해주는 시나리오 플래너입니다. 단순 가계부가 아니라, 매일의 작은 선택이 10년 뒤에 어떻게 자라는지 보여줍니다.' },
+    { q: '눈덩이는 어떤 앱인가요?', a: '사고 싶은 게 생겼을 때 하루만 맡겨두는 소비 습관 앱입니다. 참는 게 아니라 시간을 두고 고르는 것 — 참았다면 절약으로, 샀다면 충분히 고민한 결정으로 남아요. 절약이 10년 뒤 어떻게 자라는지 보여주는 복리 시뮬레이터와 금융 목표 관리도 함께 제공합니다.' },
+    { q: '소비를 못 하게 막는 앱인가요?', a: '아니요. 눈덩이는 소비를 막지 않습니다. 고민되는 소비를 1·3·7일 맡겨두고, 시간이 끝나면 다시 물어볼 뿐이에요. 사기로 했다면 그것도 충분히 고민한 좋은 결정으로 기록됩니다.' },
     { q: '무료인가요?', a: '핵심 기능은 모두 무료로 제공됩니다. 향후 고급 시나리오 비교, 무제한 목표 등 일부 기능은 프리미엄으로 제공될 예정입니다.' },
     { q: '내 금융 정보가 안전한가요?', a: '눈덩이는 계좌 정보를 직접 연결하지 않습니다. 직접 입력한 자산과 목표 정보만 저장하며, 모든 데이터는 암호화되어 전송됩니다.' },
     { q: '어떤 OS에서 사용 가능한가요?', a: 'iOS 15 이상, Android 7.0 (API 24) 이상에서 사용 가능합니다.' },
@@ -590,13 +595,13 @@ function FinalCTA() {
             START TODAY
           </div>
           <div className="font-italiana" style={{ fontSize: 26, color: L.accent, letterSpacing: '0.02em', marginBottom: 10 }}>
-            roll your snowball.
+            hold on, snowball.
           </div>
           <h2 style={{ margin: 0, fontSize: 48, fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.15 }}>
-            지금 굴리세요.<br />첫 천 원부터.
+            다음 충동구매,<br />눈덩이에 맡겨보세요.
           </h2>
           <p style={{ marginTop: 20, fontSize: 15, color: 'rgba(255,255,255,0.7)', lineHeight: 1.6, maxWidth: 380 }}>
-            가입 30초 · 첫 절약 기록 1분 · 미래는 10년 더 빨라집니다.
+            가입 30초 · 고민 담기 10초 — 내일의 당신이 답해줄 거예요.
           </p>
           <div style={{ marginTop: 32, display: 'flex', gap: 12 }}>
             <StoreBadge kind="apple" />
@@ -633,7 +638,7 @@ function Footer() {
               </div>
             </div>
             <p style={{ fontSize: 14, color: '#506782', lineHeight: 1.75, marginBottom: 20 }}>
-              눈덩이는 작은 절약의 복리 효과를 시각화하는 개인 금융 플래너 앱입니다.<br />
+              눈덩이는 충동구매를 하루 맡아주고, 작은 절약의 복리 효과를 보여주는 소비 습관 앱입니다.<br />
               1인 풀스택으로 개발·운영합니다.
             </p>
             <div style={{ fontSize: 13, color: '#506782', lineHeight: 2 }}>
@@ -658,7 +663,7 @@ function Footer() {
             </div>
           </div>
           <p style={{ fontSize: 13, color: L.ink2, lineHeight: 1.6, maxWidth: 280, margin: 0 }}>
-            작은 눈 한 톨이 거대한 부가 됩니다. 매일의 작은 절약이 미래 자산이 되는 시나리오 플래너.
+            사기 전에 하루만 맡겨두세요. 오늘의 소비를 미래와 비교하는 소비 습관 플래너.
           </p>
         </div>
         <FooterCol title="제품" links={[
