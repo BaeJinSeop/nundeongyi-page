@@ -45,6 +45,7 @@ function Nav() {
       <div className="landing-nav-links">
         {[
           { label: 'how it works', href: '#how' },
+          { label: 'echo', href: '#echo' },
           { label: 'collect', href: '#collect' },
           { label: 'tools', href: '#tools' },
           { label: 'faq', href: '#faq' },
@@ -534,6 +535,107 @@ function MicroMomentMockup() {
 }
 
 // ──────────────────────────────────────────────────────────
+// ECHO — 혼자 하는 절약 모임 (1.2.0 에코 커뮤니티)
+// ──────────────────────────────────────────────────────────
+function EchoCard({ color, seed, tag, text, cheers }) {
+  return (
+    <div style={{ padding: '14px 16px', background: L.surface, borderRadius: 16, border: `1px solid ${L.line}` }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <Snowflake size={28} color={color} seed={seed} />
+        <span style={{ fontSize: 11.5, fontWeight: 700, color }}>{tag}</span>
+        <span className="tnum" style={{ marginLeft: 'auto', fontSize: 12, fontWeight: 700, color: L.accentDeep }}>❄️ {cheers}</span>
+      </div>
+      <div style={{ marginTop: 10, fontSize: 13.5, color: L.ink, lineHeight: 1.55 }}>{text}</div>
+    </div>
+  );
+}
+
+function Echo() {
+  return (
+    <section id="echo" style={{ background: L.bg, padding: 'clamp(80px, 10vw, 120px) 24px', borderTop: `1px solid ${L.line}` }}>
+      <div className="landing-section-2col">
+        <div>
+          <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.22em', color: L.accentDeep, marginBottom: 16 }}>
+            ECHO COMMUNITY
+          </div>
+          <div className="font-italiana" style={{ fontSize: 'clamp(18px, 2.2vw, 24px)', color: L.accentDeep, letterSpacing: '0.02em', marginBottom: 10 }}>
+            alone, together,
+          </div>
+          <h2 className="landing-h2">
+            참는 건 혼자,<br />응원은 함께 와요.
+          </h2>
+          <p style={{ marginTop: 24, fontSize: 'clamp(14px, 1.4vw, 16px)', color: L.ink2, lineHeight: 1.65, maxWidth: 480 }}>
+            참아낸 순간에 익명 한마디를 남겨보세요. 같은 걸 참고 있는 누군가의
+            이야기가 눈송이처럼 도착해요. 팔로우도, 댓글도, 비교도 없이 —
+            조용한 응원만 오가는 혼자 하는 절약 모임이에요.
+          </p>
+
+          <ul style={{ marginTop: 24, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[
+              ['익명 눈송이', '이름도 프로필도 없이, 오늘의 눈송이로만'],
+              ['나눈 만큼 도착', '한마디를 나눈 기록에만 다른 사람의 에코가 와요'],
+              ['타임캡슐', '참는 밤 내일의 나에게 쓴 한 줄, 결정의 순간에 개봉'],
+              ['절약 날씨', '오늘 모두가 함께 참은 만큼 눈이 내려요'],
+            ].map(([k, v], i) => (
+              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: L.accentDeep, marginTop: 8, flexShrink: 0 }} />
+                <div>
+                  <span style={{ fontSize: 14, fontWeight: 700, color: L.ink }}>{k}</span>
+                  <span style={{ fontSize: 14, color: L.ink3, marginLeft: 8 }}>{v}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* 도착한 에코 카드 */}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{
+            width: '100%', maxWidth: 420, padding: '26px 24px',
+            background: L.iceLight, borderRadius: 26, border: `1px solid ${L.line}`,
+            boxShadow: '0 30px 60px rgba(13,40,68,0.10)', transform: 'rotate(-1.5deg)',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.18em', color: L.ink3 }}>ECHOES FOR YOU</div>
+                <div className="font-italiana" style={{ fontSize: 22, color: L.ink, marginTop: 3 }}>for you.</div>
+              </div>
+              <div style={{ padding: '5px 11px', background: L.surface, borderRadius: 999, border: `1px solid ${L.line}`, fontSize: 11.5, fontWeight: 700, color: L.accentDeep }}>
+                오늘의 절약 날씨 ❄️ 함박눈
+              </div>
+            </div>
+
+            <div style={{ marginTop: 18, display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <EchoCard color={L.winter} seed={0} tag="카페" cheers={12}
+                text="퇴근길 카페 그냥 지나쳤어요. 집 커피도 나쁘지 않네요." />
+              <EchoCard color={L.spring} seed={4} tag="쇼핑" cheers={21}
+                text="새벽에 담아둔 장바구니, 아침엔 왜 사려 했는지 기억이 안 나요." />
+              <EchoCard color={L.autumn} seed={3} tag="배달" cheers={9}
+                text="오늘은 냉장고 파먹기 성공. 이 2만원, 10년 뒤엔 얼마가 될까요?" />
+            </div>
+
+            {/* 타임캡슐 */}
+            <div style={{ marginTop: 12, padding: '13px 16px', background: L.surface, borderRadius: 16, border: `1.5px dashed ${L.ice}` }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span style={{ fontSize: 11.5, fontWeight: 700, color: L.accentDeep }}>🕰 타임캡슐 — 내일의 나에게</span>
+                <span style={{ fontSize: 10.5, color: L.ink3, fontWeight: 600 }}>내일 아침 도착</span>
+              </div>
+              <div style={{ marginTop: 8, fontSize: 13, color: L.ink2, lineHeight: 1.5, fontStyle: 'italic' }}>
+                "이거 없어도 아무 일 안 생겨. 내일의 네가 고마워할 거야."
+              </div>
+            </div>
+
+            <div style={{ marginTop: 14, fontSize: 11, color: L.ink3, textAlign: 'center' }}>
+              에코는 한마디를 나눈 사람에게만 도착해요 — 주고받는 응원.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────
 // COLLECT — 눈송이 도감 (시즌 컬렉션)
 // ──────────────────────────────────────────────────────────
 function Snowflake({ size = 56, color = '#7DB4DD', seed = 0 }) {
@@ -706,6 +808,7 @@ function FAQ() {
     { q: '소비를 못 하게 막는 앱인가요?', a: '아니요. 눈덩이는 소비를 막지 않습니다. 고민되는 소비를 1·3·7일 맡겨두고, 시간이 끝나면 다시 물어볼 뿐이에요. 사기로 했다면 그것도 충분히 고민한 좋은 결정으로 기록됩니다.' },
     { q: '무료인가요?', a: '핵심 기능은 모두 무료로 제공됩니다. 향후 고급 시나리오 비교, 무제한 목표 등 일부 기능은 프리미엄으로 제공될 예정입니다.' },
     { q: '내 금융 정보가 안전한가요?', a: '눈덩이는 계좌 정보를 직접 연결하지 않습니다. 직접 입력한 자산과 목표 정보만 저장하며, 모든 데이터는 암호화되어 전송됩니다.' },
+    { q: '에코 커뮤니티에서 내가 누군지 드러나나요?', a: '아니요. 에코는 이름·프로필·팔로우가 없는 완전 익명이며, 눈송이 모양으로만 표시됩니다. 남길 수 있는 건 짧은 한마디뿐이고, 부적절한 내용은 자동 필터와 신고·차단 기능으로 관리됩니다. 한마디를 남길지는 매번 직접 선택할 수 있어요.' },
     { q: '어떤 OS에서 사용 가능한가요?', a: 'iOS 15 이상, Android 7.0 (API 24) 이상에서 사용 가능합니다.' },
     { q: '실제로 자산을 굴려주나요?', a: '아니요. 눈덩이는 자산 운용 상품을 판매하지 않습니다. 사용자가 직접 세운 시나리오와 목표를 추적하는 도구입니다.' },
   ];
