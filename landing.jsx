@@ -89,8 +89,8 @@ function Hero() {
         </p>
 
         <div style={{ marginTop: 34, display: 'flex', gap: 12, alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <StoreBadge kind="apple" />
-          <StoreBadge kind="google" />
+          <StoreBadge kind="apple" where="hero" />
+          <StoreBadge kind="google" where="hero" />
         </div>
 
         {/* Phone stage */}
@@ -133,13 +133,19 @@ function Hero() {
   );
 }
 
-function StoreBadge({ kind }) {
+function StoreBadge({ kind, where }) {
+  const track = () => {
+    if (typeof gtag === 'function') {
+      gtag('event', 'store_click', { platform: kind, location: where || 'unknown' });
+    }
+  };
   if (kind === 'apple') {
     return (
       <a
         href="https://apps.apple.com/app/id6778849270"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={track}
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 10,
           padding: '12px 20px', background: L.ink, color: '#fff',
@@ -162,6 +168,7 @@ function StoreBadge({ kind }) {
       href="https://play.google.com/store/apps/details?id=com.snowball.nundeongyi"
       target="_blank"
       rel="noopener noreferrer"
+      onClick={track}
       style={{
         display: 'inline-flex', alignItems: 'center', gap: 10,
         padding: '12px 20px', background: L.surface, color: L.ink,
@@ -872,8 +879,8 @@ function FinalCTA() {
             가입 30초 · 고민 담기 10초 — 내일의 당신이 답해줄 거예요.
           </p>
           <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            <StoreBadge kind="apple" />
-            <StoreBadge kind="google" />
+            <StoreBadge kind="apple" where="final_cta" />
+            <StoreBadge kind="google" where="final_cta" />
           </div>
         </div>
       </div>
