@@ -21,7 +21,6 @@ OUTPUT = PAGE_ROOT / "assets" / "images" / "v2"
 SCREENS = {
     "dashboard.webp": "dashboard_v2_light_390x844.png",
     "consideration.webp": "micro_action_screen_light_390x844.png",
-    "choice-result.webp": "consideration_resist_result_v2_light_390x844.png",
     "expense-add.webp": "expense_add_v2_light_390x844.png",
     "expense-insight.webp": "expense_insight_light_390x844.png",
     "snowflake-gallery.webp": "snowflake_gallery_v2_light_390x844.png",

@@ -130,8 +130,8 @@ function Hero() {
           <StatusPill>V2 PREVIEW · 곧 업데이트</StatusPill>
           <p className="hero-kicker font-italiana">spend · save · grow.</p>
           <h1>
-            돈을 쓰기 전과<span className="desktop-space"> </span><br className="mobile-only" />후,<br />
-            <span>선택을 더<span className="desktop-space"> </span><br className="mobile-only" />똑똑하게.</span>
+            <span className="hero-line is-ink">돈을 쓰기 전과 후,</span>
+            <span className="hero-line is-blue">선택을 더 똑똑하게.</span>
           </h1>
           <p className="hero-lead">
             사고 싶은 마음은 잠시 맡기고, 쓴 돈은 가볍게 기록하고,
@@ -304,37 +304,6 @@ function HowItWorks() {
   );
 }
 
-function ChoiceStory() {
-  return (
-    <section className="section story-section">
-      <div className="section-inner story-grid">
-        <div className="story-visual">
-          <div className="story-halo" aria-hidden="true" />
-          <PhoneShot src="choice-result.webp" alt="소비를 참아낸 뒤 절약 결과를 보여주는 V2 화면" />
-          <div className="story-badge">
-            <img src={`${V2_ASSET}/snowflake.webp`} alt="" width="56" height="56" />
-            <span><small>오늘 만든 눈송이</small><strong>+ 329,000원</strong></span>
-          </div>
-        </div>
-        <div className="story-copy">
-          <StatusPill kind="green">핵심 기능 · 지금 사용 가능</StatusPill>
-          <p className="story-serif font-italiana">a choice becomes a future.</p>
-          <h2>참아낸 순간을<br />미래의 가치로.</h2>
-          <p>
-            한 번의 절약이 숫자 하나로 끝나지 않도록, 목표 도달일과 10년 뒤 가치를 바로 연결해 보여드려요.
-            작아 보였던 선택이 쌓이는 감각을 눈으로 확인할 수 있어요.
-          </p>
-          <ul className="check-list">
-            <li>절약 기록과 스트릭 자동 연결</li>
-            <li>계절마다 달라지는 나만의 눈송이</li>
-            <li>금융 목표와 복리 시뮬레이션으로 확장</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ExpensePreview() {
   return (
     <section className="section expense-section">
@@ -427,46 +396,6 @@ function Features() {
         />
         <div className="feature-grid">
           {features.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Echo() {
-  const echoes = [
-    ['카페', '퇴근길 카페 그냥 지나쳤어요. 집 커피도 생각보다 괜찮네요.', '❄ 12'],
-    ['쇼핑', '새벽에 담아둔 장바구니, 아침에는 왜 사려 했는지 기억이 안 나요.', '❄ 21'],
-    ['배달', '오늘은 냉장고 파먹기 성공. 이 2만원을 목표에 더해볼래요.', '❄ 9'],
-  ];
-  return (
-    <section className="section echo-section">
-      <div className="section-inner echo-grid">
-        <div className="echo-copy">
-          <StatusPill>v1.2 · 지금 사용 가능</StatusPill>
-          <p className="story-serif font-italiana">alone, together.</p>
-          <h2>참는 건 혼자,<br />응원은 함께 와요.</h2>
-          <p>
-            익명 한마디를 남기면 같은 카테고리를 절약한 누군가의 이야기가 눈송이처럼 도착해요.
-            팔로우도, 댓글도, 비교도 없는 혼자 하는 절약 모임이에요.
-          </p>
-          <div className="echo-points"><span>완전 익명</span><span>give to get</span><span>신고·차단 지원</span></div>
-        </div>
-        <div className="echo-panel">
-          <div className="echo-panel-head">
-            <span><small>ECHOES FOR YOU</small><strong className="font-italiana">for you.</strong></span>
-            <span className="weather-chip">오늘은 함박눈 ❄</span>
-          </div>
-          <div className="echo-list">
-            {echoes.map(([tag, text, cheers], index) => (
-              <article key={tag}>
-                <div className={`echo-flake echo-flake-${index + 1}`}>❄</div>
-                <div><span className="echo-tag">{tag}</span><p>{text}</p></div>
-                <strong>{cheers}</strong>
-              </article>
-            ))}
-          </div>
-          <div className="time-capsule"><span>내일의 나에게</span><p>“이거 없어도 아무 일 안 생겨. 내일의 네가 답해줄 거야.”</p></div>
         </div>
       </div>
     </section>
@@ -588,10 +517,8 @@ Object.assign(window, {
   Hero,
   V2Showcase,
   HowItWorks,
-  ChoiceStory,
   ExpensePreview,
   Features,
-  Echo,
   FAQ,
   FinalCTA,
   Footer,
