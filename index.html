@@ -3,33 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>눈덩이 — 사기 전에 하루만 맡겨두세요.</title>
-<meta name="description" content="살까 말까 고민될 때, 하루만 맡겨두세요. 결제 전 10초, 오늘의 소비를 미래와 비교하는 소비 습관 앱.">
+<meta name="theme-color" content="#F5F7FA">
+<title>눈덩이 — 돈을 쓰기 전과 후, 선택을 더 똑똑하게</title>
+<meta name="description" content="사기 전에는 한 번 더 생각하고, 쓴 돈은 가볍게 기록하고, 참아낸 돈은 미래의 목표로. 소비와 절약을 한눈에 보는 소비 습관 앱 눈덩이.">
 
 <link rel="canonical" href="https://baejinseop.github.io/nundeongyi-page/">
+<link rel="preload" as="image" href="assets/images/v2/dashboard.webp" type="image/webp" fetchpriority="high">
 
 <!-- OG / Twitter -->
-<meta property="og:title" content="눈덩이 — 사기 전에 하루만 맡겨두세요.">
-<meta property="og:description" content="살까 말까 고민될 때, 하루만 맡겨두세요. 결제 전 10초, 오늘의 소비를 미래와 비교하는 소비 습관 앱.">
-<meta property="og:image" content="https://baejinseop.github.io/nundeongyi-page/assets/images/og_image.png">
+<meta property="og:title" content="눈덩이 — 돈을 쓰기 전과 후, 선택을 더 똑똑하게">
+<meta property="og:description" content="사기 전에는 한 번 더 생각하고, 쓴 돈은 가볍게 기록하고, 참아낸 돈은 미래의 목표로. 새로워진 눈덩이 V2를 만나보세요.">
+<meta property="og:image" content="https://baejinseop.github.io/nundeongyi-page/assets/images/v2/og-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="눈덩이 V2 — 돈을 쓰기 전과 후, 선택을 더 똑똑하게">
 <meta property="og:url" content="https://baejinseop.github.io/nundeongyi-page/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="눈덩이 (Nundeongyi)">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="눈덩이 — 돈을 쓰기 전과 후, 선택을 더 똑똑하게">
+<meta name="twitter:description" content="소비와 절약을 한눈에 보는 소비 습관 앱">
+<meta name="twitter:image" content="https://baejinseop.github.io/nundeongyi-page/assets/images/v2/og-v2.png">
 
-<!-- 구조화 데이터: JS 미실행 크롤러(검색엔진·AI)를 위한 앱 정보 -->
+<!-- JS 미실행 크롤러를 위한 앱 정보 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   "name": "눈덩이",
   "alternateName": "Nundeongyi",
-  "description": "사기 전에 하루만 맡겨두는 소비 습관 앱. 살까 말까 고민되는 순간 결제 대신 앱에 담아두고, 하루 뒤 내일의 내가 다시 결정합니다. 참아낸 소비는 절약 기록이 되어 복리로 환산된 미래 자산으로 보여줍니다.",
+  "description": "사기 전에는 한 번 더 생각하고, 쓴 돈은 가볍게 기록하고, 참아낸 돈은 미래 목표와 연결하는 소비 습관 앱입니다.",
   "url": "https://baejinseop.github.io/nundeongyi-page/",
-  "image": "https://baejinseop.github.io/nundeongyi-page/assets/images/og_image.png",
+  "image": "https://baejinseop.github.io/nundeongyi-page/assets/images/v2/og-v2.png",
   "applicationCategory": "ProductivityApplication",
-  "operatingSystem": "iOS, Android",
+  "operatingSystem": "iOS 15 이상, Android 7.0 이상",
   "inLanguage": "ko",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
   "installUrl": [
@@ -41,7 +49,7 @@
     "https://play.google.com/store/apps/details?id=com.snowball.nundeongyi"
   ],
   "author": { "@type": "Person", "name": "배진섭", "email": "poxy1535@gmail.com" },
-  "featureList": "소비 삼고초려(구매 쿨다운), 마이크로 절약 기록·스트릭, 복리 시뮬레이터, 금융 목표 플래너, 익명 에코 커뮤니티, 절약 챌린지, 주담대 비교, 구독료 투자 비교"
+  "featureList": "소비 삼고초려, 지출 기록, 마이크로 절약 기록과 스트릭, 복리 시뮬레이터, 금융 목표 플래너, 익명 에코 커뮤니티, 눈송이 도감, 절약 챌린지"
 }
 </script>
 
@@ -54,23 +62,17 @@
   gtag('config', 'G-YHJ3REXCWP');
 </script>
 
-<link rel="icon" type="image/png" href="assets/images/app_icon.png">
+<link rel="icon" type="image/webp" href="assets/images/v2/app-icon.webp">
 <link rel="stylesheet" href="styles.css">
-<style>
-html { scroll-behavior: smooth; }
-body { background: #F7F4ED; }
-</style>
 </head>
 <body>
 <div id="root"></div>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-<script type="text/babel" src="shared.jsx"></script>
 <script type="text/babel" src="mascot.jsx"></script>
-<script type="text/babel" src="simulator.jsx"></script>
 <script type="text/babel" src="landing.jsx"></script>
 
 <script type="text/babel">
@@ -79,12 +81,12 @@ function App() {
     <>
       <Nav />
       <Hero />
-      <Empathy />
+      <V2Showcase />
       <HowItWorks />
-      <DecisionMoment />
+      <ChoiceStory />
+      <ExpensePreview />
+      <Features />
       <Echo />
-      <Collect />
-      <Tools />
       <FAQ />
       <FinalCTA />
       <Footer />
