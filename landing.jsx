@@ -127,7 +127,7 @@ function Hero() {
       <div className="hero-orb hero-orb-two" aria-hidden="true" />
       <div className="hero-grid">
         <div className="hero-copy">
-          <StatusPill>V2 PREVIEW · 곧 업데이트</StatusPill>
+          <StatusPill>V2 RELEASED · 지금 사용 가능</StatusPill>
           <p className="hero-kicker font-italiana">spend · save · grow.</p>
           <h1>
             <span className="hero-line is-ink">돈을 쓰기 전과 후,</span>
@@ -148,7 +148,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-stage" aria-label="눈덩이 V2 홈 화면 미리보기">
+        <div className="hero-stage" aria-label="눈덩이 V2 홈 화면">
           <div className="hero-snowflake" aria-hidden="true">
             <img src={`${V2_ASSET}/snowflake.webp`} alt="" width="136" height="136" />
           </div>
@@ -226,8 +226,8 @@ function V2Showcase() {
           description="가짜 목업이 아닌 실제 V2 화면입니다. 필요한 정보는 더 앞에, 입력은 더 짧게, 선택의 결과는 더 분명하게 다듬었습니다."
         />
         <div className="showcase-status">
-          <StatusPill>V2 UI 미리보기</StatusPill>
-          <span>현재 v1.2.0 제공 중 · V2는 출시 준비 중</span>
+          <StatusPill>V2 UI · 지금 사용 가능</StatusPill>
+          <span>App Store · Google Play 배포 완료</span>
         </div>
         <div className="showcase-track" role="list" aria-label="눈덩이 V2 주요 화면">
           {SHOWCASES.map((item) => (
@@ -262,7 +262,7 @@ function HowItWorks() {
       number: '01',
       icon: 'shopping-bag.webp',
       title: '고민을 담아요',
-      description: '살까 말까 하는 순간 10초면 충분해요. 지금은 1·3·7일, V2에서는 6시간도 고를 수 있어요.',
+      description: '살까 말까 하는 순간 10초면 충분해요. 고민의 크기에 따라 6시간·1일·3일·7일 중에서 고를 수 있어요.',
       tone: 'coral',
     },
     {
@@ -309,7 +309,7 @@ function ExpensePreview() {
     <section className="section expense-section">
       <div className="section-inner expense-grid">
         <div className="expense-copy">
-          <StatusPill kind="coral">V2에서 새로워져요</StatusPill>
+          <StatusPill kind="green">V2 · 지금 사용 가능</StatusPill>
           <p className="story-serif font-italiana">less typing, more clarity.</p>
           <h2>가계부가 아니라,<br />다음 선택을 위한 기록.</h2>
           <p>
@@ -322,7 +322,6 @@ function ExpensePreview() {
             <div><strong>지출 달력</strong><span>날짜별 흐름 확인</span></div>
             <div><strong>소비 인사이트</strong><span>반복 패턴 발견</span></div>
           </div>
-          <p className="release-note">이 영역은 미게시 V2 기능 미리보기이며, 스토어 업데이트 완료 후 제공됩니다.</p>
         </div>
         <div className="expense-visual" aria-label="한 줄 지출과 소비 인사이트 V2 화면">
           <PhoneShot src="expense-add.webp" alt="한 줄 지출 입력 V2 화면" className="expense-phone-one" />
@@ -333,11 +332,11 @@ function ExpensePreview() {
   );
 }
 
-function FeatureCard({ icon, title, description, status, preview }) {
+function FeatureCard({ icon, title, description, status }) {
   return (
     <article className="feature-card">
       <div className="feature-icon"><img src={`${V2_ASSET}/${icon}`} alt="" width="72" height="72" loading="lazy" /></div>
-      <span className={`feature-status ${preview ? 'is-preview' : ''}`}>{status}</span>
+      <span className="feature-status">{status}</span>
       <h3>{title}</h3>
       <p>{description}</p>
     </article>
@@ -374,15 +373,13 @@ function Features() {
       icon: 'shopping-bag.webp',
       title: '지출 허브',
       description: '예산·고정지출·달력·패턴 분석을 하나의 지출 탭에서 관리해요.',
-      status: 'V2 미리보기',
-      preview: true,
+      status: '지금 사용 가능',
     },
     {
       icon: 'future-plant.webp',
       title: '홈 화면 위젯',
       description: '절약액과 스트릭, 고민 중인 소비를 앱을 열지 않고 확인해요.',
-      status: 'V2 미리보기',
-      preview: true,
+      status: '지금 사용 가능',
     },
   ];
 
@@ -410,7 +407,7 @@ function FAQ() {
     },
     {
       q: 'V2는 지금 바로 사용할 수 있나요?',
-      a: '현재 App Store와 Google Play에는 v1.2.0이 제공되고 있습니다. 이 페이지의 V2 화면과 지출 허브 기능은 출시 준비 중인 미리보기이며, 스토어 업데이트가 완료되면 순차적으로 사용할 수 있습니다.',
+      a: '네. V2 업데이트가 App Store와 Google Play에 배포 완료되었습니다. 최신 버전으로 업데이트하면 새 홈, 한 줄 지출, 예산·고정지출·달력·소비 인사이트를 바로 사용할 수 있습니다.',
     },
     {
       q: '소비를 못 하게 막는 앱인가요?',
@@ -472,7 +469,7 @@ function FinalCTA() {
           <p className="eyebrow">START YOUR SNOWBALL</p>
           <p className="final-serif font-italiana">one better choice today.</p>
           <h2>다음 소비는,<br />눈덩이에 잠시 맡겨보세요.</h2>
-          <p>지금 눈덩이를 시작하고 새로워진 V2도 가장 먼저 만나보세요.</p>
+          <p>지금 눈덩이를 시작하고 새로워진 V2를 바로 만나보세요.</p>
           <div className="final-actions">
             <StoreBadge kind="apple" where="final_cta" />
             <StoreBadge kind="google" where="final_cta" light />
@@ -494,7 +491,7 @@ function Footer() {
           </a>
           <p>오늘의 소비를 미래의 선택과 비교하는 소비 습관 플래너.</p>
         </div>
-        <FooterColumn title="제품" links={[["V2 미리보기", '#v2'], ['사용법', '#how'], ['다운로드', '#download']]} />
+        <FooterColumn title="제품" links={[["V2 주요 화면", '#v2'], ['사용법', '#how'], ['다운로드', '#download']]} />
         <FooterColumn title="지원" links={[["자주 묻는 질문", '#faq'], ['문의하기', 'mailto:poxy1535@gmail.com']]} />
         <FooterColumn title="정책" links={[["이용약관", 'terms.html'], ['개인정보처리방침', 'privacy.html'], ['계정 삭제 요청', 'delete-account.html']]} />
       </div>
