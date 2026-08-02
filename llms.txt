@@ -6,9 +6,9 @@
 
 ## 출시 상태
 
-- App Store·Google Play: V2 v1.3.0 공개 제공
-- Premium Ice UI, 새 홈, 지출 허브, 한 줄 지출, 예산·고정지출·달력·소비 인사이트를 현재 사용할 수 있다.
-- 랜딩 페이지의 화면은 실제 배포된 V2 앱 화면이다.
+- App Store·Google Play: v1.3.0 공개 제공
+- Premium Ice UI, 새 홈, 고민·지출·절약 빠른 입력, 지출 허브, 한 줄 지출, 예산·고정지출·달력·소비 인사이트를 현재 사용할 수 있다.
+- 랜딩 페이지의 화면은 실제 배포된 앱 화면이다.
 
 ## 핵심 기능
 
@@ -36,4 +36,4 @@
 
 ## English Summary
 
-Nundeongyi ("snowball" in Korean) is a Korean spending-habit app by a solo developer. Instead of tracking past expenses like a budgeting app, it intervenes 10 seconds before a purchase: when you're unsure whether to buy something, you park it in the app for a cooldown (6 hours/1/3/7 days) and let tomorrow's you decide. Resisted purchases become savings records, visualized as future wealth via compound-interest simulation (5/10/30-year scenarios). The V2 release is available on both the App Store and Google Play, with a redesigned home, one-line expense entry, budgets, recurring expenses, calendar, and spending insights. Features also include micro-saving streaks, financial goal planning, an anonymous "echo" community where resisting moments reach others saving in the same category, savings challenges, badges, a mortgage comparison calculator, and a subscription-vs-investment comparator. Free with ads, available on iOS and Android in Korean.
+Nundeongyi ("snowball" in Korean) is a Korean spending-habit app by a solo developer. Instead of tracking past expenses like a budgeting app, it intervenes 10 seconds before a purchase: when you're unsure whether to buy something, you park it in the app for a cooldown (6 hours/1/3/7 days) and let tomorrow's you decide. Resisted purchases become savings records, visualized as future wealth via compound-interest simulation (5/10/30-year scenarios). Version 1.3.0 is available on both the App Store and Google Play, with a redesigned home, quick entry for considerations, expenses and savings, budgets, recurring expenses, calendar, and spending insights. Features also include micro-saving streaks, financial goal planning, an anonymous "echo" community where resisting moments reach others saving in the same category, savings challenges, badges, a mortgage comparison calculator, and a subscription-vs-investment comparator. Free with ads, available on iOS and Android in Korean.

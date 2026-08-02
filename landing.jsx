@@ -1,23 +1,6 @@
-// landing.jsx — 눈덩이 V2 Premium Ice landing page (2026-07)
+// landing.jsx — 눈덩이 v1.3.0 editorial landing page
 
 const V2_ASSET = 'assets/images/v2';
-
-const L = {
-  bg: '#F5F7FA',
-  surface: '#FFFFFF',
-  surface2: '#F3F6FA',
-  stroke: '#E7ECF3',
-  ink: '#172238',
-  ink2: '#748197',
-  ink3: '#A2ACBA',
-  blue: '#3F7EDB',
-  blueSoft: '#E8F1FF',
-  green: '#35AD79',
-  greenSoft: '#E7F7F0',
-  coral: '#E97973',
-  coralSoft: '#FFF0EF',
-  dark: '#0B111B',
-};
 
 const STORE_URLS = {
   apple: 'https://apps.apple.com/app/id6778849270',
@@ -61,23 +44,24 @@ function StoreBadge({ kind, where = 'unknown', light = false }) {
   );
 }
 
-function StatusPill({ children, kind = 'blue' }) {
-  return <span className={`status-pill is-${kind}`}>{children}</span>;
+function VersionPill({ children = 'v1.3.0 · 지금 사용 가능', dark = false }) {
+  return <span className={`version-pill ${dark ? 'is-dark' : ''}`}><i aria-hidden="true" />{children}</span>;
 }
 
 function SectionHeader({ eyebrow, title, description, align = 'center' }) {
   return (
     <header className={`section-header is-${align}`}>
-      <div className="eyebrow">{eyebrow}</div>
+      <p className="eyebrow">{eyebrow}</p>
       <h2>{title}</h2>
-      {description && <p>{description}</p>}
+      {description && <p className="section-description">{description}</p>}
     </header>
   );
 }
 
 function PhoneShot({ src, alt, eager = false, className = '' }) {
   return (
-    <div className={`v2-phone ${className}`}>
+    <div className={`app-phone ${className}`}>
+      <span className="phone-island" aria-hidden="true" />
       <img
         src={`${V2_ASSET}/${src}`}
         alt={alt}
@@ -93,8 +77,9 @@ function PhoneShot({ src, alt, eager = false, className = '' }) {
 
 function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
+
   React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -104,17 +89,14 @@ function Nav() {
     <nav className={`landing-nav ${scrolled ? 'is-scrolled' : ''}`} aria-label="주요 메뉴">
       <a className="landing-brand" href="#top" aria-label="눈덩이 홈">
         <img src={`${V2_ASSET}/app-icon.webp`} alt="" width="38" height="38" />
-        <span>
-          <strong>눈덩이</strong>
-          <small className="font-italiana">snowball.</small>
-        </span>
+        <span><strong>눈덩이</strong><small>snowball.</small></span>
       </a>
       <div className="landing-nav-links">
-        <a href="#v2">V2</a>
-        <a href="#how">사용법</a>
+        <a href="#journey">사용 흐름</a>
+        <a href="#quick">빠른 기록</a>
         <a href="#features">기능</a>
         <a href="#faq">FAQ</a>
-        <a className="nav-download" href="#download">앱 다운로드</a>
+        <a className="nav-download" href="#download">무료로 시작하기</a>
       </div>
     </nav>
   );
@@ -123,134 +105,103 @@ function Nav() {
 function Hero() {
   return (
     <main id="top" className="hero">
-      <div className="hero-orb hero-orb-one" aria-hidden="true" />
-      <div className="hero-orb hero-orb-two" aria-hidden="true" />
+      <div className="hero-snow hero-snow-one" aria-hidden="true">✦</div>
+      <div className="hero-snow hero-snow-two" aria-hidden="true">✦</div>
       <div className="hero-grid">
         <div className="hero-copy">
-          <StatusPill>V2 RELEASED · 지금 사용 가능</StatusPill>
-          <p className="hero-kicker font-italiana">spend · save · grow.</p>
-          <h1>
-            <span className="hero-line is-ink">돈을 쓰기 전과 후,</span>
-            <span className="hero-line is-blue">선택을 더 똑똑하게.</span>
-          </h1>
+          <VersionPill />
+          <p className="hero-kicker">SPEND · SAVE · GROW</p>
+          <h1>오늘의 작은 선택이<br /><em>내일의 눈덩이</em>가 되도록.</h1>
           <p className="hero-lead">
-            사고 싶은 마음은 잠시 맡기고, 쓴 돈은 가볍게 기록하고,
-            참아낸 돈은 미래의 목표로 이어보세요. 소비와 절약이 한눈에 보이는 눈덩이 V2입니다.
+            사고 싶은 마음은 잠시 맡기고, 쓴 돈과 참아낸 돈은 빠르게 기록하세요.
+            고민·지출·절약·목표가 하나의 흐름으로 이어집니다.
           </p>
           <div className="hero-actions">
             <StoreBadge kind="apple" where="hero" />
             <StoreBadge kind="google" where="hero" light />
           </div>
-          <div className="hero-trust" aria-label="눈덩이 앱 특징">
-            <span>무료로 시작</span>
-            <span>iOS · Android</span>
-            <span>계좌 연결 없음</span>
+          <div className="hero-notes" aria-label="앱 이용 안내">
+            <span>무료로 시작</span><span>계좌 연결 없음</span><span>iOS · Android</span>
           </div>
         </div>
 
-        <div className="hero-stage" aria-label="눈덩이 V2 홈 화면">
-          <div className="hero-snowflake" aria-hidden="true">
-            <img src={`${V2_ASSET}/snowflake.webp`} alt="" width="136" height="136" />
+        <div className="hero-stage" aria-label="눈덩이 v1.3.0 홈 화면">
+          <div className="hero-stage-label">
+            <span>오늘의 선택</span><strong>하루 더 생각해도 괜찮아요</strong>
           </div>
-          <PhoneShot src="dashboard.webp" alt="눈덩이 V2 홈 대시보드" eager className="hero-phone" />
-          <div className="hero-float-card hero-float-card-top">
-            <img src={`${V2_ASSET}/decision-check.webp`} alt="" width="48" height="48" />
-            <div><small>오늘의 선택</small><strong>하루 더 생각하기</strong></div>
-          </div>
-          <div className="hero-float-card hero-float-card-bottom">
-            <div className="float-dot" />
-            <div><small>이번 달 지킨 돈</small><strong className="tnum">128,500원</strong></div>
+          <PhoneShot src="dashboard.webp" alt="눈덩이 v1.3.0 홈 대시보드" eager className="hero-phone" />
+          <div className="hero-quick-card" aria-hidden="true">
+            <small>빠른 기록</small>
+            <div><span>고민</span><span>지출</span><span>절약</span></div>
           </div>
           <div className="hero-mascot" aria-hidden="true">
-            <Mascot size={128} palette="light" mood="happy" />
+            <Mascot size={144} palette="light" mood="happy" />
           </div>
         </div>
       </div>
-      <a className="hero-scroll font-italiana" href="#v2">discover v2 <span>↓</span></a>
+      <a className="hero-scroll" href="#journey"><span>앱 둘러보기</span><i aria-hidden="true">↓</i></a>
     </main>
   );
 }
 
-const SHOWCASES = [
+const JOURNEY = [
   {
-    image: 'dashboard.webp',
-    label: '01 · NEW HOME',
-    title: '오늘 필요한 선택부터',
-    description: '해야 할 행동과 이번 달 흐름을 가장 먼저 보여주는 새 홈.',
-    tone: L.blue,
-  },
-  {
+    step: '01',
+    label: 'THINK',
+    title: <>충동은 잠깐 맡기고,<br />결정은 천천히.</>,
+    description: '사고 싶은 순간 고민을 담아두면 눈덩이가 대신 기억해요. 정한 시간이 지난 뒤, 내 선택을 다시 확인할 수 있어요.',
+    tags: ['6시간부터 7일까지', '미래 가치 미리보기', '참았어요 · 샀어요'],
     image: 'consideration.webp',
-    label: '02 · THINK TWICE',
-    title: '소비 삼고초려',
-    description: '사기 전 잠시 맡겨두고 내일의 내가 다시 답해요.',
-    tone: L.coral,
+    alt: '소비 고민을 보관하고 결정하는 화면',
+    tone: 'blue',
   },
   {
-    image: 'expense-add.webp',
-    label: '03 · ONE LINE',
-    title: '한 줄 지출',
-    description: '복잡한 입력 대신 말하듯 적는 자연스러운 지출 기록.',
-    tone: L.green,
-  },
-  {
+    step: '02',
+    label: 'RECORD',
+    title: <>쓴 돈도 지킨 돈도,<br />가볍게 한 줄로.</>,
+    description: '복잡한 가계부 대신 말하듯 기록하세요. 예산과 소비 흐름은 눈덩이가 보기 쉽게 모아드려요.',
+    tags: ['한 줄 지출', '예산 · 고정지출', '달력 · 소비 인사이트'],
     image: 'expense-insight.webp',
-    label: '04 · INSIGHT',
-    title: '소비 인사이트',
-    description: '쓴 돈과 예산, 반복되는 소비 패턴을 한눈에 비교해요.',
-    tone: L.blue,
+    alt: '월 지출과 소비 흐름을 보여주는 인사이트 화면',
+    tone: 'mint',
   },
   {
-    image: 'snowflake-gallery.webp',
-    label: '05 · COLLECTION',
-    title: '눈송이 도감',
-    description: '참아낸 선택이 세상에 하나뿐인 눈송이로 남아요.',
-    tone: '#8A78D7',
-  },
-  {
+    step: '03',
+    label: 'GROW',
+    title: <>작은 절약을,<br />보이는 미래로.</>,
+    description: '오늘 지킨 돈이 시간이 지나면 얼마나 자랄지 비교하고, 나만의 목표까지 연결해보세요.',
+    tags: ['복리 시뮬레이터', '목표 역산', '눈송이 컬렉션'],
     image: 'simulator.webp',
-    label: '06 · SIMULATE',
-    title: '미래 시뮬레이터',
-    description: '오늘의 작은 돈이 10년 뒤 어떻게 자라는지 확인해요.',
-    tone: L.green,
+    alt: '절약한 돈의 미래 가치를 계산하는 시뮬레이터 화면',
+    tone: 'lavender',
   },
 ];
 
 function V2Showcase() {
   return (
-    <section id="v2" className="section showcase-section">
-      <div className="section-inner is-wide">
+    <section id="journey" className="section journey-section">
+      <div className="section-inner">
         <SectionHeader
-          eyebrow="THE NEW NUNDEONGYI"
-          title={<>앱에서 보던 그대로,<br />더 선명해진 V2.</>}
-          description="가짜 목업이 아닌 실제 V2 화면입니다. 필요한 정보는 더 앞에, 입력은 더 짧게, 선택의 결과는 더 분명하게 다듬었습니다."
+          eyebrow="ONE BETTER FLOW"
+          title={<>마음을 다그치지 않고,<br />선택을 바꾸는 세 장면.</>}
+          description="눈덩이는 무조건 아끼라고 말하지 않아요. 한 번 더 생각하고, 선명하게 기록하고, 더 먼 미래와 비교하도록 돕습니다."
         />
-        <div className="showcase-status">
-          <StatusPill>V2 UI · 지금 사용 가능</StatusPill>
-          <span>App Store · Google Play 배포 완료</span>
-        </div>
-        <div className="showcase-track" role="list" aria-label="눈덩이 V2 주요 화면">
-          {SHOWCASES.map((item) => (
-            <article className="showcase-card" key={item.image} role="listitem" style={{ '--card-tone': item.tone }}>
-              <div className="showcase-image">
-                <img
-                  src={`${V2_ASSET}/${item.image}`}
-                  alt={`${item.title} V2 화면`}
-                  width="390"
-                  height="844"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="showcase-copy">
-                <small>{item.label}</small>
+        <div className="journey-list">
+          {JOURNEY.map((item, index) => (
+            <article className={`journey-card is-${item.tone} ${index % 2 ? 'is-reverse' : ''}`} key={item.step}>
+              <div className="journey-copy">
+                <div className="journey-meta"><span>{item.step}</span><small>{item.label}</small></div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
+                <ul>{item.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
+              </div>
+              <div className="journey-visual">
+                <span className="journey-word" aria-hidden="true">{item.label.toLowerCase()}.</span>
+                <PhoneShot src={item.image} alt={item.alt} />
               </div>
             </article>
           ))}
         </div>
-        <p className="swipe-hint font-italiana">swipe to explore →</p>
       </div>
     </section>
   );
@@ -258,47 +209,27 @@ function V2Showcase() {
 
 function HowItWorks() {
   const steps = [
-    {
-      number: '01',
-      icon: 'shopping-bag.webp',
-      title: '고민을 담아요',
-      description: '살까 말까 하는 순간 10초면 충분해요. 고민의 크기에 따라 6시간·1일·3일·7일 중에서 고를 수 있어요.',
-      tone: 'coral',
-    },
-    {
-      number: '02',
-      icon: 'future-plant.webp',
-      title: '시간을 두고 봐요',
-      description: '눈덩이가 대신 기억하는 동안, 그 돈이 10년 뒤 얼마가 될 수 있는지 먼저 보여드려요.',
-      tone: 'green',
-    },
-    {
-      number: '03',
-      icon: 'decision-check.webp',
-      title: '내일의 내가 답해요',
-      description: '참았다면 절약으로, 샀다면 충분히 고민한 결정으로 남아요. 어느 쪽도 실패가 아니에요.',
-      tone: 'blue',
-    },
+    { number: '1', icon: 'shopping-bag.webp', title: '마음을 담고', text: '살까 말까 고민되는 소비를 10초 안에 적어요.' },
+    { number: '2', icon: 'future-plant.webp', title: '미래와 비교하고', text: '그 돈이 시간이 지나면 얼마가 될지 먼저 확인해요.' },
+    { number: '3', icon: 'decision-check.webp', title: '내 선택을 남겨요', text: '참아도, 사도 괜찮아요. 충분히 고민한 선택으로 남아요.' },
   ];
 
   return (
-    <section id="how" className="section how-section">
+    <section className="section how-section">
       <div className="section-inner">
-        <SectionHeader
-          eyebrow="HOW IT WORKS"
-          title={<>참으라고 하지 않아요.<br />한 번 더 생각하게 해요.</>}
-          description="결제 직전의 마음을 부정하지 않고, 잠시 거리를 두어 더 나은 선택을 만드는 눈덩이의 핵심은 그대로입니다."
-        />
-        <div className="how-grid">
-          {steps.map((step) => (
-            <article className={`how-card is-${step.tone}`} key={step.number}>
-              <span className="how-number font-italiana">{step.number}</span>
-              <img src={`${V2_ASSET}/${step.icon}`} alt="" width="112" height="112" loading="lazy" />
-              <h3>{step.title}</h3>
-              <p>{step.description}</p>
-            </article>
-          ))}
+        <div className="how-heading">
+          <p className="eyebrow">HOW IT WORKS</p>
+          <h2>결제 직전, 딱 한 번만 멈춰보세요.</h2>
         </div>
+        <ol className="how-list">
+          {steps.map((step) => (
+            <li key={step.number}>
+              <span className="how-number">{step.number}</span>
+              <img src={`${V2_ASSET}/${step.icon}`} alt="" width="96" height="96" loading="lazy" />
+              <div><h3>{step.title}</h3><p>{step.text}</p></div>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );
@@ -306,94 +237,65 @@ function HowItWorks() {
 
 function ExpensePreview() {
   return (
-    <section className="section expense-section">
-      <div className="section-inner expense-grid">
-        <div className="expense-copy">
-          <StatusPill kind="green">V2 · 지금 사용 가능</StatusPill>
-          <p className="story-serif font-italiana">less typing, more clarity.</p>
-          <h2>가계부가 아니라,<br />다음 선택을 위한 기록.</h2>
-          <p>
-            “어제 스벅 6500”처럼 한 줄로 적고, 예산과 고정지출, 달력과 인사이트를 한 흐름에서 확인하세요.
-            저장 전에는 항상 내용을 직접 확인할 수 있어요.
+    <section id="quick" className="section quick-section">
+      <div className="section-inner quick-grid">
+        <div className="quick-copy">
+          <VersionPill dark>v1.3.0 · 더 빨라진 기록</VersionPill>
+          <p className="eyebrow">QUICK INPUT</p>
+          <h2>생각이 사라지기 전에,<br />바로 남기세요.</h2>
+          <p className="quick-lead">
+            대시보드에서 고민·지출·절약을 곧바로 시작할 수 있어요.
+            필요한 입력만 짧게, 확인은 분명하게 만들었습니다.
           </p>
-          <div className="mini-feature-grid">
-            <div><strong>한 줄 입력</strong><span>말하듯 빠르게</span></div>
-            <div><strong>월 예산</strong><span>쓴 돈과 바로 비교</span></div>
-            <div><strong>지출 달력</strong><span>날짜별 흐름 확인</span></div>
-            <div><strong>소비 인사이트</strong><span>반복 패턴 발견</span></div>
+          <div className="quick-options" aria-label="빠른 입력 종류">
+            <div><span className="quick-icon is-blue">?</span><strong>고민</strong><small>살까 말까 잠시 보관</small></div>
+            <div><span className="quick-icon is-coral">₩</span><strong>지출</strong><small>쓴 돈을 한 줄로</small></div>
+            <div><span className="quick-icon is-mint">✓</span><strong>절약</strong><small>지킨 돈을 바로 기록</small></div>
           </div>
         </div>
-        <div className="expense-visual" aria-label="한 줄 지출과 소비 인사이트 V2 화면">
-          <PhoneShot src="expense-add.webp" alt="한 줄 지출 입력 V2 화면" className="expense-phone-one" />
-          <PhoneShot src="expense-insight.webp" alt="소비 인사이트 V2 화면" className="expense-phone-two" />
+        <div className="quick-visual" aria-label="빠른 입력과 지출 화면">
+          <PhoneShot src="expense-add.webp" alt="한 줄 지출을 빠르게 입력하는 화면" className="quick-phone-back" />
+          <PhoneShot src="dashboard.webp" alt="고민, 지출, 절약을 빠르게 시작하는 대시보드" className="quick-phone-front" />
+          <div className="quick-snowflake" aria-hidden="true">
+            <img src={`${V2_ASSET}/snowflake.webp`} alt="" width="112" height="112" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function FeatureCard({ icon, title, description, status }) {
+const FEATURES = [
+  { icon: 'snowflake.webp', title: '눈송이 도감', description: '절약할 때마다 하나뿐인 눈송이가 쌓여요.', tone: 'ice', size: 'wide' },
+  { icon: 'goal-mountain.webp', title: '목표 플래너', description: '목표 금액과 기간을 현실적인 계획으로 바꿔요.', tone: 'sand' },
+  { icon: 'streak-fire.webp', title: '절약 스트릭', description: '작은 선택을 끊기지 않는 습관으로 만들어요.', tone: 'peach' },
+  { icon: 'hand-wave.webp', title: '에코 커뮤니티', description: '이름도 비교도 없이 조용한 응원을 나눠요.', tone: 'lavender' },
+  { icon: 'shopping-bag.webp', title: '지출 인사이트', description: '예산·달력·반복 패턴을 한눈에 확인해요.', tone: 'plain', size: 'wide' },
+  { icon: 'future-plant.webp', title: '홈 화면 위젯', description: '앱을 열지 않아도 절약액과 스트릭을 확인해요.', tone: 'mint' },
+];
+
+function FeatureCard({ icon, title, description, tone, size }) {
   return (
-    <article className="feature-card">
-      <div className="feature-icon"><img src={`${V2_ASSET}/${icon}`} alt="" width="72" height="72" loading="lazy" /></div>
-      <span className="feature-status">{status}</span>
-      <h3>{title}</h3>
-      <p>{description}</p>
+    <article className={`feature-card is-${tone} ${size === 'wide' ? 'is-wide' : ''}`}>
+      <div className="feature-icon"><img src={`${V2_ASSET}/${icon}`} alt="" width="88" height="88" loading="lazy" /></div>
+      <div><span>AVAILABLE NOW</span><h3>{title}</h3><p>{description}</p></div>
     </article>
   );
 }
 
 function Features() {
-  const features = [
-    {
-      icon: 'snowflake.webp',
-      title: '눈송이 도감',
-      description: '절약마다 모양이 다른 눈송이를 만들고 사계절 컬렉션을 채워요.',
-      status: '지금 사용 가능',
-    },
-    {
-      icon: 'hand-wave.webp',
-      title: '에코 커뮤니티',
-      description: '이름·팔로우·비교 없이, 같은 소비를 참은 누군가와 조용한 응원을 나눠요.',
-      status: '지금 사용 가능',
-    },
-    {
-      icon: 'goal-mountain.webp',
-      title: '목표와 시뮬레이터',
-      description: '목표 금액을 역산하고 비관·기대·낙관 시나리오로 미래를 비교해요.',
-      status: '지금 사용 가능',
-    },
-    {
-      icon: 'streak-fire.webp',
-      title: '절약 습관',
-      description: '작은 절약을 스트릭, 캘린더, 챌린지와 연결해 꾸준한 흐름을 만들어요.',
-      status: '지금 사용 가능',
-    },
-    {
-      icon: 'shopping-bag.webp',
-      title: '지출 허브',
-      description: '예산·고정지출·달력·패턴 분석을 하나의 지출 탭에서 관리해요.',
-      status: '지금 사용 가능',
-    },
-    {
-      icon: 'future-plant.webp',
-      title: '홈 화면 위젯',
-      description: '절약액과 스트릭, 고민 중인 소비를 앱을 열지 않고 확인해요.',
-      status: '지금 사용 가능',
-    },
-  ];
-
   return (
     <section id="features" className="section features-section">
       <div className="section-inner">
         <SectionHeader
-          eyebrow="ONE APP, ONE FLOW"
-          title={<>소비부터 목표까지,<br />흩어지지 않게.</>}
-          description="눈덩이는 실제 자산을 운용하거나 계좌를 연결하지 않습니다. 직접 기록한 선택을 더 잘 이해하도록 돕는 소비 습관 도구입니다."
+          eyebrow="EVERYTHING IN ONE PLACE"
+          title={<>고민에서 목표까지,<br />필요한 기능만 한곳에.</>}
+          description="계좌 연결이나 복잡한 금융 용어 없이, 내가 직접 남긴 선택을 이해하는 데 집중했어요."
         />
         <div className="feature-grid">
-          {features.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
+          {FEATURES.map((feature) => <FeatureCard key={feature.title} {...feature} />)}
         </div>
+        <p className="feature-disclaimer">눈덩이는 금융 상품을 판매하거나 실제 자산을 운용하지 않는 소비 습관 도구입니다.</p>
       </div>
     </section>
   );
@@ -403,11 +305,11 @@ function FAQ() {
   const items = [
     {
       q: '눈덩이는 어떤 앱인가요?',
-      a: '사고 싶은 게 생겼을 때 잠시 맡겨두고 다시 결정하는 소비 습관 앱입니다. 참아낸 소비는 절약 기록과 미래 가치로 이어지고, 목표·시뮬레이터·에코 커뮤니티 같은 도구를 함께 제공합니다.',
+      a: '사고 싶은 게 생겼을 때 잠시 맡겨두고 다시 결정하는 소비 습관 앱입니다. 참아낸 소비는 절약 기록과 미래 가치로 이어지고, 지출·목표·시뮬레이터·에코 커뮤니티를 함께 제공합니다.',
     },
     {
-      q: 'V2는 지금 바로 사용할 수 있나요?',
-      a: '네. V2 업데이트가 App Store와 Google Play에 배포 완료되었습니다. 최신 버전으로 업데이트하면 새 홈, 한 줄 지출, 예산·고정지출·달력·소비 인사이트를 바로 사용할 수 있습니다.',
+      q: 'v1.3.0은 지금 바로 사용할 수 있나요?',
+      a: '네. v1.3.0이 App Store와 Google Play에 배포 완료되었습니다. 각 스토어에서 최신 버전으로 업데이트해 사용할 수 있습니다.',
     },
     {
       q: '소비를 못 하게 막는 앱인가요?',
@@ -419,11 +321,11 @@ function FAQ() {
     },
     {
       q: '내 계좌를 연결해야 하나요?',
-      a: '아니요. 눈덩이는 계좌 정보를 직접 연결하지 않습니다. 사용자가 직접 입력한 소비·절약·목표 정보만 사용합니다.',
+      a: '아니요. 계좌 정보를 연결하지 않습니다. 사용자가 직접 입력한 소비·절약·목표 정보만 사용합니다.',
     },
     {
       q: '에코 커뮤니티에서 내가 누군지 드러나나요?',
-      a: '아니요. 이름·프로필·팔로우가 없는 익명 공간이며 눈송이로만 표시됩니다. 공유 여부는 매번 직접 선택할 수 있고, 신고와 차단 기능을 제공합니다.',
+      a: '이름·프로필·팔로우가 없는 익명 공간이며 눈송이로만 표시됩니다. 공유 여부는 매번 직접 선택할 수 있고, 신고와 차단 기능을 제공합니다.',
     },
     {
       q: '어떤 기기에서 사용할 수 있나요?',
@@ -434,8 +336,13 @@ function FAQ() {
 
   return (
     <section id="faq" className="section faq-section">
-      <div className="section-inner is-narrow">
-        <SectionHeader eyebrow="FAQ" title="궁금한 점을 먼저 답할게요." />
+      <div className="section-inner faq-grid">
+        <div className="faq-heading">
+          <p className="eyebrow">FAQ</p>
+          <h2>시작하기 전에<br />궁금한 점.</h2>
+          <p>더 궁금한 내용은 언제든 메일로 알려주세요.</p>
+          <a href="mailto:poxy1535@gmail.com">문의하기 ↗</a>
+        </div>
         <div className="faq-list">
           {items.map((item, index) => {
             const expanded = open === index;
@@ -463,20 +370,32 @@ function FinalCTA() {
   return (
     <section id="download" className="section final-section">
       <div className="final-card">
-        <div className="final-orb" aria-hidden="true" />
-        <div className="final-mascot" aria-hidden="true"><Mascot size={180} palette="light" mood="happy" shadow={false} /></div>
         <div className="final-copy">
+          <VersionPill dark />
           <p className="eyebrow">START YOUR SNOWBALL</p>
-          <p className="final-serif font-italiana">one better choice today.</p>
           <h2>다음 소비는,<br />눈덩이에 잠시 맡겨보세요.</h2>
-          <p>지금 눈덩이를 시작하고 새로워진 V2를 바로 만나보세요.</p>
+          <p>오늘 한 번 더 생각한 선택이 내일의 더 큰 가능성이 됩니다.</p>
           <div className="final-actions">
             <StoreBadge kind="apple" where="final_cta" />
             <StoreBadge kind="google" where="final_cta" light />
           </div>
         </div>
+        <div className="final-art" aria-hidden="true">
+          <span className="final-snow final-snow-one">✦</span>
+          <span className="final-snow final-snow-two">✦</span>
+          <Mascot size={220} palette="light" mood="happy" shadow={false} />
+        </div>
       </div>
     </section>
+  );
+}
+
+function FooterColumn({ title, links }) {
+  return (
+    <div className="footer-column">
+      <strong>{title}</strong>
+      {links.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
+    </div>
   );
 }
 
@@ -487,25 +406,17 @@ function Footer() {
         <div className="footer-brand-col">
           <a className="landing-brand" href="#top">
             <img src={`${V2_ASSET}/app-icon.webp`} alt="" width="42" height="42" />
-            <span><strong>눈덩이</strong><small className="font-italiana">snowball.</small></span>
+            <span><strong>눈덩이</strong><small>snowball.</small></span>
           </a>
           <p>오늘의 소비를 미래의 선택과 비교하는 소비 습관 플래너.</p>
+          <span className="footer-version">APP VERSION 1.3.0</span>
         </div>
-        <FooterColumn title="제품" links={[["V2 주요 화면", '#v2'], ['사용법', '#how'], ['다운로드', '#download']]} />
+        <FooterColumn title="둘러보기" links={[["사용 흐름", '#journey'], ['빠른 기록', '#quick'], ['주요 기능', '#features']]} />
         <FooterColumn title="지원" links={[["자주 묻는 질문", '#faq'], ['문의하기', 'mailto:poxy1535@gmail.com']]} />
         <FooterColumn title="정책" links={[["이용약관", 'terms.html'], ['개인정보처리방침', 'privacy.html'], ['계정 삭제 요청', 'delete-account.html']]} />
       </div>
-      <div className="footer-bottom"><span>© 2026 Nundeongyi. All rights reserved.</span><span className="font-italiana">made with snow in seoul.</span></div>
+      <div className="footer-bottom"><span>© 2026 Nundeongyi. All rights reserved.</span><span>made with snow in seoul.</span></div>
     </footer>
-  );
-}
-
-function FooterColumn({ title, links }) {
-  return (
-    <div className="footer-column">
-      <strong>{title}</strong>
-      {links.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
-    </div>
   );
 }
 
