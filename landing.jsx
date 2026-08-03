@@ -58,15 +58,15 @@ function SectionHeader({ eyebrow, title, description, align = 'center' }) {
   );
 }
 
-function PhoneShot({ src, alt, eager = false, className = '' }) {
+function PhoneShot({ src, alt, eager = false, className = '', nativeStatusBar = false }) {
   return (
-    <div className={`app-phone ${className}`}>
-      <span className="phone-island" aria-hidden="true" />
+    <div className={`app-phone ${nativeStatusBar ? 'is-native-capture' : ''} ${className}`}>
+      {!nativeStatusBar && <span className="phone-island" aria-hidden="true" />}
       <img
         src={`${V2_ASSET}/${src}`}
         alt={alt}
-        width="390"
-        height="844"
+        width={nativeStatusBar ? 1179 : 390}
+        height={nativeStatusBar ? 2556 : 844}
         loading={eager ? 'eager' : 'lazy'}
         decoding="async"
         fetchPriority={eager ? 'high' : 'auto'}
@@ -126,10 +126,13 @@ function Hero() {
         </div>
 
         <div className="hero-stage" aria-label="눈덩이 v1.3.0 홈 화면">
-          <div className="hero-stage-label">
-            <span>오늘의 선택</span><strong>하루 더 생각해도 괜찮아요</strong>
-          </div>
-          <PhoneShot src="dashboard.webp" alt="눈덩이 v1.3.0 홈 대시보드" eager className="hero-phone" />
+          <PhoneShot
+            src="dashboard-iphone15pro.webp"
+            alt="실제 아이폰에서 실행 중인 눈덩이 v1.3.0 홈 대시보드"
+            eager
+            nativeStatusBar
+            className="hero-phone"
+          />
           <div className="hero-quick-card" aria-hidden="true">
             <small>빠른 기록</small>
             <div><span>고민</span><span>지출</span><span>절약</span></div>
@@ -255,7 +258,12 @@ function ExpensePreview() {
         </div>
         <div className="quick-visual" aria-label="빠른 입력과 지출 화면">
           <PhoneShot src="expense-add.webp" alt="한 줄 지출을 빠르게 입력하는 화면" className="quick-phone-back" />
-          <PhoneShot src="dashboard.webp" alt="고민, 지출, 절약을 빠르게 시작하는 대시보드" className="quick-phone-front" />
+          <PhoneShot
+            src="dashboard-iphone15pro.webp"
+            alt="고민, 지출, 절약을 빠르게 시작하는 실제 아이폰 대시보드"
+            nativeStatusBar
+            className="quick-phone-front"
+          />
           <div className="quick-snowflake" aria-hidden="true">
             <img src={`${V2_ASSET}/snowflake.webp`} alt="" width="112" height="112" loading="lazy" />
           </div>

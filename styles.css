@@ -170,6 +170,7 @@ button { font: inherit; }
   background: #f4f6fa;
   box-shadow: var(--shadow-phone);
 }
+.app-phone.is-native-capture { aspect-ratio: 1179 / 2556; }
 .app-phone img { width: 100%; height: 100%; object-fit: cover; }
 .phone-island {
   position: absolute;
@@ -278,16 +279,6 @@ button { font: inherit; }
   border-radius: 50%;
   content: '';
 }
-.hero-stage-label {
-  position: absolute;
-  z-index: 4;
-  top: 39px;
-  left: 34px;
-  display: grid;
-  gap: 5px;
-}
-.hero-stage-label span { color: var(--blue-dark); font-size: 10px; font-weight: 850; letter-spacing: .1em; }
-.hero-stage-label strong { color: var(--ink); font-size: 13px; }
 .hero-phone { z-index: 2; width: 337px; transform: rotate(1.5deg); }
 .hero-quick-card {
   position: absolute;
@@ -548,7 +539,6 @@ button { font: inherit; }
   .hero-actions .store-badge small { font-size: 8px; }
   .hero-notes { max-width: 340px; margin-inline: auto; font-size: 10px; }
   .hero-stage { min-height: 515px; border-radius: 34px; }
-  .hero-stage-label { top: 24px; left: 22px; }
   .hero-phone { width: 232px; border-width: 5px; border-radius: 38px; transform: none; }
   .hero-quick-card, .hero-mascot { display: none; }
   .hero-snow { display: none; }
