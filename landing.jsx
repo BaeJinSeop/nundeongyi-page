@@ -200,7 +200,7 @@ function V2Showcase() {
               </div>
               <div className="journey-visual">
                 <span className="journey-word" aria-hidden="true">{item.label.toLowerCase()}.</span>
-                <PhoneShot src={item.image} alt={item.alt} />
+                <PhoneShot src={item.image} alt={item.alt} nativeStatusBar />
               </div>
             </article>
           ))}
@@ -257,7 +257,7 @@ function ExpensePreview() {
           </div>
         </div>
         <div className="quick-visual" aria-label="빠른 입력과 지출 화면">
-          <PhoneShot src="expense-add.webp" alt="한 줄 지출을 빠르게 입력하는 화면" className="quick-phone-back" />
+          <PhoneShot src="expense-add.webp" alt="한 줄 지출을 빠르게 입력하는 화면" nativeStatusBar className="quick-phone-back" />
           <PhoneShot
             src="dashboard-iphone15pro.webp"
             alt="고민, 지출, 절약을 빠르게 시작하는 실제 아이폰 대시보드"

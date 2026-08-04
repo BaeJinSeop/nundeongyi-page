@@ -18,14 +18,11 @@ DASHBOARD_ASSETS = APP_ROOT / "assets" / "images" / "dashboard_v2"
 STORE_GRAPHICS = APP_ROOT / "store_graphics" / "v1.3.0" / "google-play"
 OUTPUT = PAGE_ROOT / "assets" / "images" / "v2"
 
-SCREENS = {
-    "dashboard.webp": "dashboard_v2_light_390x844.png",
-    "consideration.webp": "micro_action_screen_light_390x844.png",
-    "expense-add.webp": "expense_add_v2_light_390x844.png",
-    "expense-insight.webp": "expense_insight_light_390x844.png",
-    "snowflake-gallery.webp": "snowflake_gallery_v2_light_390x844.png",
-    "simulator.webp": "simulator_create_v2_light_390x844.png",
-}
+# ⚠️ 폰 스크린은 더 이상 골든에서 만들지 않는다 (2026-08-04) —
+# 실기 시뮬레이터 캡처로 교체됨. 재생성은 convert_landing_shots.py
+# (+앱 레포 integration_test/landing_shots_test.dart) 경로 사용.
+# 이 스크립트는 장식 아이콘·앱 아이콘·OG 이미지만 담당한다.
+SCREENS: dict[str, str] = {}
 
 DECORATIONS = {
     "hand-wave.webp": "ui-hand-wave.png",
