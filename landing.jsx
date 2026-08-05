@@ -1,4 +1,4 @@
-// landing.jsx — 눈덩이 v1.3.0 editorial landing page
+// landing.jsx — 눈덩이 v1.4.0 editorial landing page
 
 const V2_ASSET = 'assets/images/v2';
 
@@ -44,7 +44,7 @@ function StoreBadge({ kind, where = 'unknown', light = false }) {
   );
 }
 
-function VersionPill({ children = 'v1.3.0 · 지금 사용 가능', dark = false }) {
+function VersionPill({ children = 'v1.4.0 · 지금 사용 가능', dark = false }) {
   return <span className={`version-pill ${dark ? 'is-dark' : ''}`}><i aria-hidden="true" />{children}</span>;
 }
 
@@ -125,10 +125,10 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-stage" aria-label="눈덩이 v1.3.0 홈 화면">
+        <div className="hero-stage" aria-label="눈덩이 v1.4.0 홈 화면">
           <PhoneShot
             src="dashboard-iphone15pro.webp"
-            alt="실제 아이폰에서 실행 중인 눈덩이 v1.3.0 홈 대시보드"
+            alt="실제 아이폰에서 실행 중인 눈덩이 v1.4.0 홈 대시보드"
             eager
             nativeStatusBar
             className="hero-phone"
@@ -162,8 +162,8 @@ const JOURNEY = [
     step: '02',
     label: 'RECORD',
     title: <>쓴 돈도 지킨 돈도,<br />가볍게 한 줄로.</>,
-    description: '복잡한 가계부 대신 말하듯 기록하세요. 예산과 소비 흐름은 눈덩이가 보기 쉽게 모아드려요.',
-    tags: ['한 줄 지출', '예산 · 고정지출', '달력 · 소비 인사이트'],
+    description: '"어제 스벅 6500 카드"처럼 말하듯 기록하세요. 수입까지 더해 예산과 소비 흐름을 한눈에 모아드려요.',
+    tags: ['한 줄 입력 · 결제수단', '수입 · 예산 · 고정지출', '달력 · 소비 인사이트'],
     image: 'expense-insight.webp',
     alt: '월 지출과 소비 흐름을 보여주는 인사이트 화면',
     tone: 'mint',
@@ -178,6 +178,16 @@ const JOURNEY = [
     alt: '절약한 돈의 미래 가치를 계산하는 시뮬레이터 화면',
     tone: 'lavender',
   },
+  {
+    step: '04',
+    label: 'SHARE',
+    title: <>가계부는,<br />같이 쓸 때 완성.</>,
+    description: '초대코드 하나로 커플·가족이 지출과 수입을 한 장부에 모아요. 누가 기록하면 서로의 폰에 알림이 도착해요.',
+    tags: ['초대코드 입장', '지출 · 수입 합산', '기록 알림'],
+    image: 'ledger.webp',
+    alt: '커플이 함께 쓰는 공유 가계부 화면',
+    tone: 'peach',
+  },
 ];
 
 function V2Showcase() {
@@ -186,8 +196,8 @@ function V2Showcase() {
       <div className="section-inner">
         <SectionHeader
           eyebrow="ONE BETTER FLOW"
-          title={<>마음을 다그치지 않고,<br />선택을 바꾸는 세 장면.</>}
-          description="눈덩이는 무조건 아끼라고 말하지 않아요. 한 번 더 생각하고, 선명하게 기록하고, 더 먼 미래와 비교하도록 돕습니다."
+          title={<>마음을 다그치지 않고,<br />선택을 바꾸는 네 장면.</>}
+          description="눈덩이는 무조건 아끼라고 말하지 않아요. 한 번 더 생각하고, 선명하게 기록하고, 더 먼 미래와 비교하고, 함께 씁니다."
         />
         <div className="journey-list">
           {JOURNEY.map((item, index) => (
@@ -243,7 +253,7 @@ function ExpensePreview() {
     <section id="quick" className="section quick-section">
       <div className="section-inner quick-grid">
         <div className="quick-copy">
-          <VersionPill dark>v1.3.0 · 더 빨라진 기록</VersionPill>
+          <VersionPill dark>v1.4.0 · 더 빨라진 기록</VersionPill>
           <p className="eyebrow">QUICK INPUT</p>
           <h2>생각이 사라지기 전에,<br />바로 남기세요.</h2>
           <p className="quick-lead">
@@ -316,8 +326,8 @@ function FAQ() {
       a: '사고 싶은 게 생겼을 때 잠시 맡겨두고 다시 결정하는 소비 습관 앱입니다. 참아낸 소비는 절약 기록과 미래 가치로 이어지고, 지출·목표·시뮬레이터·에코 커뮤니티를 함께 제공합니다.',
     },
     {
-      q: 'v1.3.0은 지금 바로 사용할 수 있나요?',
-      a: '네. v1.3.0이 App Store와 Google Play에 배포 완료되었습니다. 각 스토어에서 최신 버전으로 업데이트해 사용할 수 있습니다.',
+      q: 'v1.4.0은 지금 바로 사용할 수 있나요?',
+      a: '네. v1.4.0이 App Store와 Google Play에 배포 완료되었습니다. 각 스토어에서 최신 버전으로 업데이트해 사용할 수 있습니다.',
     },
     {
       q: '소비를 못 하게 막는 앱인가요?',
@@ -417,7 +427,7 @@ function Footer() {
             <span><strong>눈덩이</strong><small>snowball.</small></span>
           </a>
           <p>오늘의 소비를 미래의 선택과 비교하는 소비 습관 플래너.</p>
-          <span className="footer-version">APP VERSION 1.3.0</span>
+          <span className="footer-version">APP VERSION 1.4.0</span>
         </div>
         <FooterColumn title="둘러보기" links={[["사용 흐름", '#journey'], ['빠른 기록', '#quick'], ['주요 기능', '#features']]} />
         <FooterColumn title="지원" links={[["자주 묻는 질문", '#faq'], ['문의하기', 'mailto:poxy1535@gmail.com']]} />

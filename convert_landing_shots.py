@@ -22,6 +22,7 @@ MAPPING = {
     "expense-insight.png": "expense-insight.webp",
     "expense-add.png": "expense-add.webp",
     "simulator.png": "simulator.webp",
+    "ledger.png": "ledger.webp",
 }
 
 
