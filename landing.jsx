@@ -1,4 +1,4 @@
-// landing.jsx — 눈덩이 v1.4.0 editorial landing page
+// landing.jsx — 눈덩이 v1.5.0 editorial landing page
 
 const V2_ASSET = 'assets/images/v2';
 
@@ -44,7 +44,7 @@ function StoreBadge({ kind, where = 'unknown', light = false }) {
   );
 }
 
-function VersionPill({ children = 'v1.4.0 · 지금 사용 가능', dark = false }) {
+function VersionPill({ children = 'v1.5.0 · 지금 사용 가능', dark = false }) {
   return <span className={`version-pill ${dark ? 'is-dark' : ''}`}><i aria-hidden="true" />{children}</span>;
 }
 
@@ -125,10 +125,10 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-stage" aria-label="눈덩이 v1.4.0 홈 화면">
+        <div className="hero-stage" aria-label="눈덩이 v1.5.0 홈 화면">
           <PhoneShot
             src="dashboard-iphone15pro.webp"
-            alt="실제 아이폰에서 실행 중인 눈덩이 v1.4.0 홈 대시보드"
+            alt="실제 아이폰에서 실행 중인 눈덩이 v1.5.0 홈 대시보드"
             eager
             nativeStatusBar
             className="hero-phone"
@@ -181,9 +181,9 @@ const JOURNEY = [
   {
     step: '04',
     label: 'SHARE',
-    title: <>가계부는,<br />같이 쓸 때 완성.</>,
-    description: '초대코드 하나로 커플·가족이 지출과 수입을 한 장부에 모아요. 누가 기록하면 서로의 폰에 알림이 도착해요.',
-    tags: ['초대코드 입장', '지출 · 수입 합산', '기록 알림'],
+    title: <>같이 쓰는 가계부,<br />여행 정산까지.</>,
+    description: '초대코드 하나로 함께 쓰되, 공유는 올릴 기록만 골라서. 여행방에서는 "라멘 1200엔"처럼 현지 통화 그대로 적으면 1/N 정산까지 자동이에요.',
+    tags: ['올릴 기록만 골라서', '여행방 · 현지 통화', '1/N 정산 자동'],
     image: 'ledger.webp',
     alt: '커플이 함께 쓰는 공유 가계부 화면',
     tone: 'peach',
@@ -253,7 +253,7 @@ function ExpensePreview() {
     <section id="quick" className="section quick-section">
       <div className="section-inner quick-grid">
         <div className="quick-copy">
-          <VersionPill dark>v1.4.0 · 더 빨라진 기록</VersionPill>
+          <VersionPill dark>v1.5.0 · 더 빨라진 기록</VersionPill>
           <p className="eyebrow">QUICK INPUT</p>
           <h2>생각이 사라지기 전에,<br />바로 남기세요.</h2>
           <p className="quick-lead">
@@ -326,8 +326,8 @@ function FAQ() {
       a: '사고 싶은 게 생겼을 때 잠시 맡겨두고 다시 결정하는 소비 습관 앱입니다. 참아낸 소비는 절약 기록과 미래 가치로 이어지고, 지출·목표·시뮬레이터·에코 커뮤니티를 함께 제공합니다.',
     },
     {
-      q: 'v1.4.0은 지금 바로 사용할 수 있나요?',
-      a: '네. v1.4.0이 App Store와 Google Play에 배포 완료되었습니다. 각 스토어에서 최신 버전으로 업데이트해 사용할 수 있습니다.',
+      q: 'v1.5.0에서는 무엇이 달라졌나요?',
+      a: '여행 가계부가 추가됐어요. 여행방에서 현지 통화 그대로 기록하면 1/N 정산까지 자동으로 계산됩니다. 공유 가계부는 "골라서 공유"로 바뀌어, 기록할 때 올리기를 켠 것만 함께 보입니다. 각 스토어에서 최신 버전으로 업데이트해 사용할 수 있습니다.',
     },
     {
       q: '소비를 못 하게 막는 앱인가요?',
@@ -340,6 +340,10 @@ function FAQ() {
     {
       q: '내 계좌를 연결해야 하나요?',
       a: '아니요. 계좌 정보를 연결하지 않습니다. 사용자가 직접 입력한 소비·절약·목표 정보만 사용합니다.',
+    },
+    {
+      q: '공유 가계부에 올리면 내 모든 기록이 보이나요?',
+      a: '아니요. 기록할 때 "공유 가계부에도 올리기"를 켠 것만 공유됩니다. 평소 지출 탭에서 적은 기록은 나만 볼 수 있고, 이미 적어둔 기록도 수정 화면에서 공유로 바꾸거나 되돌릴 수 있어요.',
     },
     {
       q: '에코 커뮤니티에서 내가 누군지 드러나나요?',
@@ -427,7 +431,7 @@ function Footer() {
             <span><strong>눈덩이</strong><small>snowball.</small></span>
           </a>
           <p>오늘의 소비를 미래의 선택과 비교하는 소비 습관 플래너.</p>
-          <span className="footer-version">APP VERSION 1.4.0</span>
+          <span className="footer-version">APP VERSION 1.5.0</span>
         </div>
         <FooterColumn title="둘러보기" links={[["사용 흐름", '#journey'], ['빠른 기록', '#quick'], ['주요 기능', '#features']]} />
         <FooterColumn title="지원" links={[["자주 묻는 질문", '#faq'], ['문의하기', 'mailto:poxy1535@gmail.com']]} />
