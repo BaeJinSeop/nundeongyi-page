@@ -5,7 +5,7 @@
 //
 // 폰 목업은 일본어 실캡처(assets/images/v2/ja/ — 앱 스토어 스크린샷 raw 재활용).
 // 시뮬레이터 화면은 ja 캡처가 없어 GROW 장면을 눈송이 도감으로 구성.
-// 정책 문서(terms/privacy)는 한국어 원문으로 연결 — 라벨에 (韓国語) 명기.
+// 정책 문서는 일본어판(privacy-ja/terms-ja/delete-account-ja.html)으로 연결.
 
 window.LANDING_COPY = {
   brandName: 'ゆきだま',
@@ -174,7 +174,7 @@ window.LANDING_COPY = {
     columns: [
       { title: '見てまわる', links: [['使いかた', '#journey'], ['クイック記録', '#quick'], ['主な機能', '#features']] },
       { title: 'サポート', links: [['よくある質問', '#faq'], ['お問い合わせ', 'mailto:poxy1535@gmail.com']] },
-      { title: 'ポリシー', links: [['利用規約 (韓国語)', 'terms.html'], ['プライバシーポリシー (韓国語)', 'privacy.html'], ['アカウント削除のご案内', 'delete-account.html']] },
+      { title: 'ポリシー', links: [['利用規約', 'terms-ja.html'], ['プライバシーポリシー', 'privacy-ja.html'], ['アカウント削除のご案内', 'delete-account-ja.html']] },
     ],
     copyright: '© 2026 Nundeongyi. All rights reserved.',
     madeWith: 'made with snow in seoul.',
