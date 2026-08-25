@@ -103,6 +103,16 @@ button { font: inherit; }
   color: #fff;
 }
 .landing-nav-links .nav-download:hover { background: var(--blue); color: #fff; transform: translateY(-1px); }
+.landing-nav-links .nav-lang {
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.landing-nav-links .nav-lang:hover { border-color: var(--blue); color: var(--blue); }
 
 /* Shared */
 .section { position: relative; padding: clamp(88px, 10vw, 150px) 24px; }
@@ -519,7 +529,7 @@ button { font: inherit; }
   .landing-nav { top: 8px; width: calc(100% - 16px); min-height: 60px; padding: 8px 9px 8px 12px; border-radius: 18px; }
   .landing-brand > img { width: 34px; height: 34px; }
   .landing-brand strong { font-size: 14px; }
-  .landing-nav-links > a:not(.nav-download) { display: none; }
+  .landing-nav-links > a:not(.nav-download):not(.nav-lang) { display: none; }
   .landing-nav-links .nav-download { padding: 10px 13px; font-size: 11px; }
 
   .section { padding: 78px 16px; }
@@ -622,6 +632,7 @@ button { font: inherit; }
 
 @media (max-width: 360px) {
   .landing-nav-links .nav-download { padding-inline: 10px; }
+  .landing-nav-links .nav-lang { padding: 7px 10px; font-size: 11px; }
   .hero h1 { font-size: 32px; }
   .hero-actions .store-badge { padding-inline: 8px; }
   .hero-actions .store-badge strong { font-size: 12px; }

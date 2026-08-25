@@ -274,7 +274,7 @@ function Nav() {
       <div className="landing-nav-links">
         {C.nav.links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
         {C.nav.langSwitch && (
-          <a href={C.nav.langSwitch.href} hrefLang={C.nav.langSwitch.hrefLang} rel="alternate">{C.nav.langSwitch.label}</a>
+          <a className="nav-lang" href={C.nav.langSwitch.href} hrefLang={C.nav.langSwitch.hrefLang} rel="alternate">{C.nav.langSwitch.label}</a>
         )}
         <a className="nav-download" href="#download">{C.nav.download}</a>
       </div>
