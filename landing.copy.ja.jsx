@@ -19,7 +19,10 @@ window.LANDING_COPY = {
     homeAria: 'ゆきだまホーム',
     links: [['使いかた', '#journey'], ['クイック記録', '#quick'], ['機能', '#features'], ['FAQ', '#faq']],
     download: '無料ではじめる',
-    langSwitch: { label: '한국어', href: './', hrefLang: 'ko' },
+    langSwitch: [
+      { label: '한국어', href: './', hrefLang: 'ko' },
+      { label: 'EN', href: 'en.html', hrefLang: 'en' },
+    ],
   },
   hero: {
     kicker: 'SPEND · SAVE · GROW',

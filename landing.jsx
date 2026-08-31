@@ -1,8 +1,11 @@
 // landing.jsx — 눈덩이 editorial landing page
 //
-// 다국어: 모든 카피는 아래 KO_COPY(기본)에 있고, ja.html은 landing.copy.ja.jsx가
-// 정의한 window.LANDING_COPY로 통째로 교체한다 (컴포넌트는 공유 — 전체 사본 복제
-// 금지 원칙). 카피 키를 추가/삭제하면 landing.copy.ja.jsx도 반드시 함께 수정할 것.
+// 다국어: 모든 카피는 아래 KO_COPY(기본)에 있고, ja.html·en.html은 각각
+// landing.copy.ja.jsx / landing.copy.en.jsx가 정의한 window.LANDING_COPY로 통째로
+// 교체한다 (컴포넌트는 공유 — 전체 사본 복제 금지 원칙). 카피 키를 추가/삭제하면
+// landing.copy.ja.jsx·landing.copy.en.jsx도 반드시 함께 수정할 것.
+//
+// nav.langSwitch는 객체 하나 또는 배열 둘 다 허용한다(언어가 3개가 되며 배열로 확장).
 
 const V2_ASSET = 'assets/images/v2';
 
@@ -23,7 +26,10 @@ const KO_COPY = {
     homeAria: '눈덩이 홈',
     links: [['사용 흐름', '#journey'], ['빠른 기록', '#quick'], ['기능', '#features'], ['FAQ', '#faq']],
     download: '무료로 시작하기',
-    langSwitch: { label: '日本語', href: 'ja.html', hrefLang: 'ja' },
+    langSwitch: [
+      { label: '日本語', href: 'ja.html', hrefLang: 'ja' },
+      { label: 'EN', href: 'en.html', hrefLang: 'en' },
+    ],
   },
   hero: {
     kicker: 'SPEND · SAVE · GROW',
@@ -273,9 +279,9 @@ function Nav() {
       </a>
       <div className="landing-nav-links">
         {C.nav.links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
-        {C.nav.langSwitch && (
-          <a className="nav-lang" href={C.nav.langSwitch.href} hrefLang={C.nav.langSwitch.hrefLang} rel="alternate">{C.nav.langSwitch.label}</a>
-        )}
+        {C.nav.langSwitch && [].concat(C.nav.langSwitch).map((lang) => (
+          <a className="nav-lang" key={lang.href} href={lang.href} hrefLang={lang.hrefLang} rel="alternate">{lang.label}</a>
+        ))}
         <a className="nav-download" href="#download">{C.nav.download}</a>
       </div>
     </nav>

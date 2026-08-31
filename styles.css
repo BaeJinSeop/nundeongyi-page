@@ -530,6 +530,8 @@ button { font: inherit; }
   .landing-brand > img { width: 34px; height: 34px; }
   .landing-brand strong { font-size: 14px; }
   .landing-nav-links > a:not(.nav-download):not(.nav-lang) { display: none; }
+  /* 언어 스위치가 2개(3개 국어)라 모바일에서는 간격을 좁혀 다운로드 버튼과 함께 들어가게 */
+  .landing-nav-links { gap: 12px; }
   .landing-nav-links .nav-download { padding: 10px 13px; font-size: 11px; }
 
   .section { padding: 78px 16px; }
@@ -631,8 +633,9 @@ button { font: inherit; }
 }
 
 @media (max-width: 360px) {
+  .landing-nav-links { gap: 8px; }
   .landing-nav-links .nav-download { padding-inline: 10px; }
-  .landing-nav-links .nav-lang { padding: 7px 10px; font-size: 11px; }
+  .landing-nav-links .nav-lang { padding: 7px 9px; font-size: 11px; }
   .hero h1 { font-size: 32px; }
   .hero-actions .store-badge { padding-inline: 8px; }
   .hero-actions .store-badge strong { font-size: 12px; }
