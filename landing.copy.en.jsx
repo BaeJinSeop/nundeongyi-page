@@ -3,17 +3,16 @@
 // landing.jsx의 KO_COPY와 같은 스키마. landing.jsx보다 먼저 로드되어야 한다.
 // 카피 키가 바뀌면 이 파일도 반드시 함께 수정할 것.
 //
-// TODO(en 실캡처): 폰 목업 4장 + 빠른 기록 2장이 **일본어 캡처**(assets/images/v2/ja/)를
-// 임시로 재사용하고 있다. en 스토어 스크린샷 파이프라인(ja 스크립트 포크, 데모 계정
-// en/US)이 나오면 assets/images/v2/en/ 으로 교체할 것. 교체 대상 키:
-//   hero.phone / journey.items[0..3].image / quick.back / quick.front
+// 폰 목업 6키는 en 실캡처(assets/images/v2/en/ — store_screenshots/en/raw 1.8.0
+// 파이프라인 산출물을 1179×2556 webp로 변환)를 쓴다. 재생성은 앱 레포
+// scripts/generate_store_screenshots_en.py 재촬영 후 page 레포에서 Pillow 변환.
 // 자연어 한 줄 입력(파서)은 ko 전용이라 ja와 마찬가지로 소구에서 제외했다.
 // 정책 문서는 영어판(privacy-en/terms-en/delete-account-en.html)으로 연결하고,
 // 한국어 원문 링크를 함께 노출한다.
 
 window.LANDING_COPY = {
   brandName: 'Snowball',
-  versionPill: 'v1.7.0 · Available now',
+  versionPill: 'v1.8.0 · Available now',
   storeAria: {
     apple: 'Download Snowball on the App Store',
     google: 'Get Snowball on Google Play',
@@ -35,7 +34,7 @@ window.LANDING_COPY = {
     notesAria: 'What you should know',
     notes: ['Free to start', 'No bank linking', 'iOS · Android'],
     stageAria: 'The Snowball home screen',
-    phone: { src: 'ja/dashboard.webp', alt: 'The Snowball home dashboard' },
+    phone: { src: 'en/dashboard.webp', alt: 'The Snowball home dashboard' },
     quickLabel: 'Quick entry',
     quickChips: ['Tempted', 'Spent', 'Saved'],
     scroll: 'Take a look',
@@ -53,7 +52,7 @@ window.LANDING_COPY = {
         title: <>Park the impulse.<br />Decide later.</>,
         description: 'Found something you want? Park it, and Snowball holds on to it for you. When the timer runs out, you answer one question: do you still want it?',
         tags: ['From 6 hours to 7 days', 'Preview the future value', 'Held out · Bought it'],
-        image: 'ja/consideration.webp',
+        image: 'en/consideration.webp',
         alt: 'Parking a purchase you are unsure about and deciding on it later',
         tone: 'blue',
       },
@@ -63,7 +62,7 @@ window.LANDING_COPY = {
         title: <>What you spent, what you kept.<br />One line each.</>,
         description: 'Log expenses and income in a few taps. Budgets and recurring bills come along for the ride, so this month reads clearly at a glance.',
         tags: ['Payment method included', 'Income · budgets · recurring', 'Calendar · spending insights'],
-        image: 'ja/expense-insight.webp',
+        image: 'en/expense-insight.webp',
         alt: 'A month of spending and budgets in one view',
         tone: 'mint',
       },
@@ -73,7 +72,7 @@ window.LANDING_COPY = {
         title: <>Turn small saves into<br />a future you can see.</>,
         description: 'See what the money you kept today could grow into, then point it at a goal that actually matters to you. Every save mints a snowflake that is yours alone.',
         tags: ['Compound simulator', 'Goal planner', 'Snowflake collection'],
-        image: 'ja/snowflake-gallery.webp',
+        image: 'en/snowflake-gallery.webp',
         alt: 'The snowflake collection that grows with every saving record',
         tone: 'lavender',
       },
@@ -83,7 +82,7 @@ window.LANDING_COPY = {
         title: <>A ledger you share,<br />trips settled for you.</>,
         description: 'One invite code opens a shared ledger, and only the entries you choose get posted. On a trip, write "ramen 1,200 yen" in the local currency and the even split is worked out for you.',
         tags: ['Share only what you pick', 'Trip rooms · local currency', 'Automatic even split'],
-        image: 'ja/ledger.webp',
+        image: 'en/ledger.webp',
         alt: 'A trip ledger settling an even split between members',
         tone: 'peach',
       },
@@ -110,8 +109,8 @@ window.LANDING_COPY = {
       { tone: 'is-mint', sym: '✓', name: 'Saved', desc: 'Log what you kept' },
     ],
     visualAria: 'Quick entry and saving record screens',
-    back: { src: 'ja/saving-add.webp', alt: 'Recording a saving in a few taps' },
-    front: { src: 'ja/dashboard.webp', alt: 'A dashboard that starts a parked purchase, an expense or a save' },
+    back: { src: 'en/saving-add.webp', alt: 'Recording a saving in a few taps' },
+    front: { src: 'en/dashboard.webp', alt: 'A dashboard that starts a parked purchase, an expense or a save' },
   },
   features: {
     header: {
