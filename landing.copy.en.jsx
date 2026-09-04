@@ -98,7 +98,7 @@ window.LANDING_COPY = {
     ],
   },
   quick: {
-    pill: 'v1.7.0 · Now in English',
+    pill: 'v1.8.0 · Weekly report',
     eyebrow: 'QUICK INPUT',
     title: <>Catch it before<br />the thought is gone.</>,
     lead: 'Start a parked purchase, an expense or a save right from the home screen. Short to enter, clear to confirm.',
@@ -141,7 +141,11 @@ window.LANDING_COPY = {
       },
       {
         q: 'Is the app available in English?',
-        a: 'Yes. As of v1.7.0 the entire app is in English whenever your device language is English. Currency display currently covers Korean won and Japanese yen, and US dollar support is on the way (Profile → App settings → Currency). You can send feedback from inside the app at any time.',
+        a: 'Yes. The entire app is in English whenever your device language is English, and since v1.8.0 currency display covers US dollars alongside Korean won and Japanese yen (Profile → App settings → Currency). You can send feedback from inside the app at any time.',
+      },
+      {
+        q: 'What is new in v1.8.0?',
+        a: 'A weekly spending report every Monday morning — total spend, change from last week, your top five categories and budget pace. US dollar support down to the cent, and reminders that arrive in your own time zone wherever you are.',
       },
       {
         q: 'Is this an app that stops me from buying things?',
@@ -176,7 +180,7 @@ window.LANDING_COPY = {
   },
   footer: {
     tagline: 'A spending-habit planner that weighs today against the future you are saving for.',
-    version: 'APP VERSION 1.7.0',
+    version: 'APP VERSION 1.8.0',
     columns: [
       { title: 'Explore', links: [['How it works', '#journey'], ['Quick entry', '#quick'], ['Features', '#features']] },
       { title: 'Support', links: [['FAQ', '#faq'], ['Contact', 'mailto:poxy1535@gmail.com']] },
