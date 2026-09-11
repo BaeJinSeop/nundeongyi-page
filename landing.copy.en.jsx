@@ -12,7 +12,14 @@
 
 window.LANDING_COPY = {
   brandName: 'Snowball',
-  versionPill: 'v1.8.0 · Available now',
+  versionPill: 'Expense tracking meets saving habits',
+  install: {
+    title: 'Start your first record with Snowball',
+    note: 'Free core features · Contains ads',
+    hint: 'Choose the store for your phone.',
+    screenshotNote: 'Actual app screens · Amounts and records are examples.',
+    preview: 'See how it works first',
+  },
   storeAria: {
     apple: 'Download Snowball on the App Store',
     google: 'Get Snowball on Google Play',
@@ -20,7 +27,7 @@ window.LANDING_COPY = {
   nav: {
     aria: 'Main menu',
     homeAria: 'Snowball home',
-    links: [['How it works', '#journey'], ['Quick entry', '#quick'], ['Features', '#features'], ['FAQ', '#faq']],
+    links: [['App preview', '#journey'], ['Quick entry', '#quick'], ['Features', '#features'], ['FAQ', '#faq']],
     download: 'Get it free',
     langSwitch: [
       { label: '한국어', href: './', hrefLang: 'ko' },
@@ -28,11 +35,11 @@ window.LANDING_COPY = {
     ],
   },
   hero: {
-    kicker: 'SPEND · SAVE · GROW',
-    title: <>A tiny snowflake becomes<br /><em>tomorrow's snowball</em>.</>,
-    lead: 'Park the urge to buy, log what you spent and what you kept, and let it add up. Second thoughts, expenses, savings and goals all live in one flow.',
+    kicker: 'SPEND LESS. SEE MORE.',
+    title: <>Track what you spend.<br /><em>Celebrate what you keep.</em></>,
+    lead: 'The coffee you skipped deserves a record, too. See spending and small saves together, and connect them to a goal you care about.',
     notesAria: 'What you should know',
-    notes: ['Free to start', 'No bank linking', 'iOS · Android'],
+    notes: ['Free core features · Contains ads', 'Manual entry, no bank linking'],
     stageAria: 'The Snowball home screen',
     phone: { src: 'en/dashboard.webp', alt: 'The Snowball home dashboard' },
     quickLabel: 'Quick entry',
@@ -40,10 +47,12 @@ window.LANDING_COPY = {
     scroll: 'Take a look',
   },
   journey: {
+    tabsAria: 'Preview Snowball features',
+    tabs: ['Pause a purchase', 'Track spending', 'Save toward a goal', 'Share a ledger'],
     header: {
-      eyebrow: 'ONE BETTER FLOW',
-      title: <>Four moments that change<br />what you buy. No guilt.</>,
-      description: 'Snowball never tells you to just stop spending. It asks once more, records what happened plainly, weighs it against your future, and shares only what you choose to share.',
+      eyebrow: 'YOUR MONEY, YOUR WAY',
+      title: <>Start with the record<br />you need today.</>,
+      description: 'Just track expenses, or park a purchase you are unsure about. Pick a feature to see it in the app.',
     },
     items: [
       {
@@ -80,7 +89,7 @@ window.LANDING_COPY = {
         step: '04',
         label: 'SHARE',
         title: <>A ledger you share,<br />trips settled for you.</>,
-        description: 'One invite code opens a shared ledger, and only the entries you choose get posted. On a trip, write "ramen 1,200 yen" in the local currency and the even split is worked out for you.',
+        description: 'One invite code opens a shared ledger, and only the entries you choose get posted. Record trip expenses in the local currency and see how to split the bill evenly.',
         tags: ['Share only what you pick', 'Trip rooms · local currency', 'Automatic even split'],
         image: 'en/ledger.webp',
         alt: 'A trip ledger settling an even split between members',
@@ -90,18 +99,18 @@ window.LANDING_COPY = {
   },
   how: {
     eyebrow: 'HOW IT WORKS',
-    title: 'Stop for ten seconds before you pay.',
+    title: 'A little pause before you pay.',
     steps: [
-      { number: '1', icon: 'shopping-bag.webp', title: 'Park it', text: 'Jot down the purchase you are torn about. Ten seconds, tops.' },
+      { number: '1', icon: 'shopping-bag.webp', title: 'Park it', text: 'Jot down the item you are torn about and its price.' },
       { number: '2', icon: 'future-plant.webp', title: 'Weigh it', text: 'See what that money could be worth years from now, before it is gone.' },
       { number: '3', icon: 'decision-check.webp', title: 'Make the call', text: 'Hold out or buy it. Either way it is a choice you actually thought about.' },
     ],
   },
   quick: {
-    pill: 'v1.8.0 · Weekly report',
+    pill: 'Start small. Keep it simple.',
     eyebrow: 'QUICK INPUT',
     title: <>Catch it before<br />the thought is gone.</>,
-    lead: 'Start a parked purchase, an expense or a save right from the home screen. Short to enter, clear to confirm.',
+    lead: 'One coffee you bought. One delivery order you skipped. Record either right from home. You do not have to use every feature at once.',
     optionsAria: 'Quick entry types',
     options: [
       { tone: 'is-blue', sym: '?', name: 'Tempted', desc: 'Park it and decide later' },
@@ -144,8 +153,8 @@ window.LANDING_COPY = {
         a: 'Yes. The entire app is in English whenever your device language is English, and since v1.8.0 currency display covers US dollars alongside Korean won and Japanese yen (Profile → App settings → Currency). You can send feedback from inside the app at any time.',
       },
       {
-        q: 'What is new in v1.8.0?',
-        a: 'A weekly spending report every Monday morning — total spend, change from last week, your top five categories and budget pace. US dollar support down to the cent, and reminders that arrive in your own time zone wherever you are.',
+        q: 'Where should I start?',
+        a: 'Add one expense from today or a purchase you are unsure about. Try goals and shared ledgers when you need them. There is no need to import your entire history or connect a bank account.',
       },
       {
         q: 'Is this an app that stops me from buying things?',
@@ -175,8 +184,8 @@ window.LANDING_COPY = {
   },
   finalCta: {
     eyebrow: 'START YOUR SNOWBALL',
-    title: <>Park the next thing<br />you almost bought.</>,
-    lead: 'One more moment of thought today becomes a bigger option tomorrow.',
+    title: <>One thing you spent.<br />One thing you saved.</>,
+    lead: 'No grand plan needed. Just your first record.',
   },
   footer: {
     tagline: 'A spending-habit planner that weighs today against the future you are saving for.',

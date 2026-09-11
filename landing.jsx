@@ -16,7 +16,14 @@ const STORE_URLS = {
 
 const KO_COPY = {
   brandName: '눈덩이',
-  versionPill: 'v1.8.0 · 지금 사용 가능',
+  versionPill: '지출 기록부터 절약 습관까지',
+  install: {
+    title: '오늘의 첫 기록, 눈덩이에서',
+    note: '핵심 기능 무료 · 광고 포함',
+    hint: '내 휴대폰에 맞는 스토어를 선택하세요.',
+    screenshotNote: '실제 앱 화면 · 금액과 기록은 예시입니다.',
+    preview: '어떻게 쓰는지 먼저 볼게요',
+  },
   storeAria: {
     apple: 'App Store에서 눈덩이 다운로드',
     google: 'Google Play에서 눈덩이 다운로드',
@@ -24,7 +31,7 @@ const KO_COPY = {
   nav: {
     aria: '주요 메뉴',
     homeAria: '눈덩이 홈',
-    links: [['사용 흐름', '#journey'], ['빠른 기록', '#quick'], ['기능', '#features'], ['FAQ', '#faq']],
+    links: [['앱 미리보기', '#journey'], ['빠른 기록', '#quick'], ['기능', '#features'], ['FAQ', '#faq']],
     download: '무료로 시작하기',
     langSwitch: [
       { label: '日本語', href: 'ja.html', hrefLang: 'ja' },
@@ -32,11 +39,11 @@ const KO_COPY = {
     ],
   },
   hero: {
-    kicker: 'SPEND · SAVE · GROW',
-    title: <>오늘의 작은 선택이<br /><em>내일의 눈덩이</em>가 되도록.</>,
-    lead: '사고 싶은 마음은 잠시 맡기고, 쓴 돈과 참아낸 돈은 빠르게 기록하세요. 고민·지출·절약·목표가 하나의 흐름으로 이어집니다.',
+    kicker: 'SPEND LESS. SEE MORE.',
+    title: <>쓴 돈만 적지 말고,<br /><em>지킨 돈도</em> 모아보세요.</>,
+    lead: '커피 한 잔을 참은 날도 기록할 이유가 있어요. 지출과 절약을 함께 보고, 모으고 싶은 목표까지 이어가세요.',
     notesAria: '앱 이용 안내',
-    notes: ['무료로 시작', '계좌 연결 없음', 'iOS · Android'],
+    notes: ['핵심 기능 무료 · 광고 포함', '은행 연동 없이 직접 기록'],
     stageAria: '눈덩이 홈 화면',
     phone: { src: 'dashboard-iphone15pro.webp', alt: '실제 아이폰에서 실행 중인 눈덩이 홈 대시보드' },
     quickLabel: '빠른 기록',
@@ -44,10 +51,12 @@ const KO_COPY = {
     scroll: '앱 둘러보기',
   },
   journey: {
+    tabsAria: '눈덩이 기능 미리보기',
+    tabs: ['소비 고민', '지출 기록', '절약과 목표', '공유 가계부'],
     header: {
-      eyebrow: 'ONE BETTER FLOW',
-      title: <>마음을 다그치지 않고,<br />선택을 바꾸는 네 장면.</>,
-      description: '눈덩이는 무조건 아끼라고 말하지 않아요. 한 번 더 생각하고, 선명하게 기록하고, 더 먼 미래와 비교하고, 함께 씁니다.',
+      eyebrow: 'YOUR MONEY, YOUR WAY',
+      title: <>지금 나에게 필요한<br />기록부터 시작하세요.</>,
+      description: '가계부만 써도, 살까 말까 고민만 남겨도 괜찮아요. 궁금한 기능을 골라 실제 앱 화면을 확인해보세요.',
     },
     items: [
       {
@@ -96,16 +105,16 @@ const KO_COPY = {
     eyebrow: 'HOW IT WORKS',
     title: '결제 직전, 딱 한 번만 멈춰보세요.',
     steps: [
-      { number: '1', icon: 'shopping-bag.webp', title: '마음을 담고', text: '살까 말까 고민되는 소비를 10초 안에 적어요.' },
+      { number: '1', icon: 'shopping-bag.webp', title: '마음을 담고', text: '살까 말까 고민되는 물건과 금액을 적어요.' },
       { number: '2', icon: 'future-plant.webp', title: '미래와 비교하고', text: '그 돈이 시간이 지나면 얼마가 될지 먼저 확인해요.' },
       { number: '3', icon: 'decision-check.webp', title: '내 선택을 남겨요', text: '참아도, 사도 괜찮아요. 충분히 고민한 선택으로 남아요.' },
     ],
   },
   quick: {
-    pill: 'v1.8.0 · 더 빨라진 기록',
+    pill: '복잡한 준비 없이, 첫 기록부터',
     eyebrow: 'QUICK INPUT',
     title: <>생각이 사라지기 전에,<br />바로 남기세요.</>,
-    lead: '대시보드에서 고민·지출·절약을 곧바로 시작할 수 있어요. 필요한 입력만 짧게, 확인은 분명하게 만들었습니다.',
+    lead: '오늘 쓴 커피값 하나, 배달 대신 집밥을 먹으며 지킨 돈 하나. 홈에서 바로 남기세요. 모든 기능을 한꺼번에 쓸 필요는 없어요.',
     optionsAria: '빠른 입력 종류',
     options: [
       { tone: 'is-blue', sym: '?', name: '고민', desc: '살까 말까 잠시 보관' },
@@ -144,8 +153,8 @@ const KO_COPY = {
         a: '사고 싶은 게 생겼을 때 잠시 맡겨두고 다시 결정하는 소비 습관 앱입니다. 참아낸 소비는 절약 기록과 미래 가치로 이어지고, 지출·목표·시뮬레이터·에코 커뮤니티를 함께 제공합니다.',
       },
       {
-        q: 'v1.8.0에서는 무엇이 달라졌나요?',
-        a: '매주 월요일 아침, 지난주 지출을 한 장으로 정리한 주간 리포트가 도착해요 — 총지출, 전주 대비, 카테고리 TOP5, 예산 페이스까지. 표시 통화에 미국 달러가 추가되어 원·엔·달러 중에 고를 수 있고, 해외에 있어도 리마인더와 리포트가 내 시간대에 맞춰 옵니다. 이전 버전의 여행 종료·보관, 기록 댓글, 일본어·영어 표시도 그대로예요. 각 스토어에서 최신 버전으로 업데이트해 사용할 수 있습니다.',
+        q: '처음에는 무엇부터 하면 되나요?',
+        a: '오늘 쓴 돈 한 건이나, 살까 말까 고민되는 물건 하나부터 남겨보세요. 목표·공유 가계부 등은 필요해질 때 시작해도 됩니다. 모든 내역을 옮기거나 은행을 연결할 필요는 없어요.',
       },
       {
         q: '소비를 못 하게 막는 앱인가요?',
@@ -175,8 +184,8 @@ const KO_COPY = {
   },
   finalCta: {
     eyebrow: 'START YOUR SNOWBALL',
-    title: <>다음 소비는,<br />눈덩이에 잠시 맡겨보세요.</>,
-    lead: '오늘 한 번 더 생각한 선택이 내일의 더 큰 가능성이 됩니다.',
+    title: <>오늘 쓴 돈 하나.<br />오늘 지킨 돈 하나.</>,
+    lead: '거창한 계획 없이, 첫 기록부터 시작해보세요.',
   },
   footer: {
     tagline: '오늘의 소비를 미래의 선택과 비교하는 소비 습관 플래너.',
@@ -194,9 +203,28 @@ const KO_COPY = {
 const C = window.LANDING_COPY || KO_COPY;
 
 function trackStoreClick(platform, location) {
-  if (typeof gtag === 'function') {
-    gtag('event', 'store_click', { platform, location });
-  }
+  // 측정 장애가 설치 링크를 막지 않게 한다. 기존 이벤트명과 필드는 유지한다.
+  try {
+    if (typeof gtag === 'function') gtag('event', 'store_click', {
+      platform, location, language: document.documentElement.lang,
+    });
+  } catch (_) { /* 설치 이동은 측정 성공 여부와 무관하다. */ }
+}
+
+function getStorePlatform(device = navigator) {
+  // 편의를 위한 표시 힌트일 뿐, 리디렉션하거나 다른 스토어를 숨기지 않는다.
+  if (/android/i.test(device.userAgent || '')) return 'google';
+  if (/iPad|iPhone|iPod/i.test(device.userAgent || '') ||
+      (device.platform === 'MacIntel' && device.maxTouchPoints > 1)) return 'apple';
+  return null;
+}
+
+function StoreActions({ where, className = '' }) {
+  const preferred = getStorePlatform();
+  const order = preferred === 'google' ? ['google', 'apple'] : ['apple', 'google'];
+  return <div className={`store-actions ${className}`}>
+    {order.map((kind, index) => <StoreBadge key={kind} kind={kind} where={where} light={index !== 0} />)}
+  </div>;
 }
 
 function StoreBadge({ kind, where = 'unknown', light = false }) {
@@ -263,6 +291,7 @@ function PhoneShot({ src, alt, eager = false, className = '', nativeStatusBar = 
 
 function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
+  const platform = getStorePlatform();
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -282,7 +311,11 @@ function Nav() {
         {C.nav.langSwitch && [].concat(C.nav.langSwitch).map((lang) => (
           <a className="nav-lang" key={lang.href} href={lang.href} hrefLang={lang.hrefLang} rel="alternate">{lang.label}</a>
         ))}
-        <a className="nav-download" href="#download">{C.nav.download}</a>
+        <a className="nav-download" href={platform ? STORE_URLS[platform] : '#download'}
+          onClick={() => platform && trackStoreClick(platform, 'nav')}
+          aria-label={platform ? C.storeAria[platform] : C.nav.download}>
+          {C.nav.download}
+        </a>
       </div>
     </nav>
   );
@@ -290,22 +323,20 @@ function Nav() {
 
 function Hero() {
   return (
-    <main id="top" className="hero">
+    <section id="top" className="hero" aria-labelledby="hero-title">
       <div className="hero-snow hero-snow-one" aria-hidden="true">✦</div>
       <div className="hero-snow hero-snow-two" aria-hidden="true">✦</div>
       <div className="hero-grid">
         <div className="hero-copy">
           <VersionPill />
           <p className="hero-kicker">{C.hero.kicker}</p>
-          <h1>{C.hero.title}</h1>
+          <h1 id="hero-title">{C.hero.title}</h1>
           <p className="hero-lead">{C.hero.lead}</p>
-          <div className="hero-actions">
-            <StoreBadge kind="apple" where="hero" />
-            <StoreBadge kind="google" where="hero" light />
-          </div>
+          <StoreActions where="hero" className="hero-actions" />
           <div className="hero-notes" aria-label={C.hero.notesAria}>
             {C.hero.notes.map((note) => <span key={note}>{note}</span>)}
           </div>
+          <a className="preview-link" href="#journey">{C.install.preview}<span aria-hidden="true"> ↓</span></a>
         </div>
 
         <div className="hero-stage" aria-label={C.hero.stageAria}>
@@ -326,11 +357,26 @@ function Hero() {
         </div>
       </div>
       <a className="hero-scroll" href="#journey"><span>{C.hero.scroll}</span><i aria-hidden="true">↓</i></a>
-    </main>
+    </section>
   );
 }
 
 function V2Showcase() {
+  const [selected, setSelected] = React.useState(1);
+  const tabRefs = React.useRef([]);
+  const onTabKeyDown = (event, index) => {
+    const count = C.journey.items.length;
+    const next = {
+      ArrowRight: (index + 1) % count,
+      ArrowLeft: (index - 1 + count) % count,
+      Home: 0,
+      End: count - 1,
+    }[event.key];
+    if (next === undefined) return;
+    event.preventDefault();
+    setSelected(next);
+    tabRefs.current[next]?.focus();
+  };
   return (
     <section id="journey" className="section journey-section">
       <div className="section-inner">
@@ -339,9 +385,20 @@ function V2Showcase() {
           title={C.journey.header.title}
           description={C.journey.header.description}
         />
-        <div className="journey-list">
+        <div className="journey-tabs" role="tablist" aria-label={C.journey.tabsAria}>
+          {C.journey.tabs.map((label, index) => <button key={label} type="button" role="tab"
+            id={`journey-tab-${index}`} aria-controls={`journey-panel-${index}`}
+            aria-selected={selected === index} tabIndex={selected === index ? 0 : -1}
+            ref={(node) => { tabRefs.current[index] = node; }}
+            onClick={() => setSelected(index)} onKeyDown={(event) => onTabKeyDown(event, index)}>
+            {label}
+          </button>)}
+        </div>
+        <div className="journey-list is-tabbed">
           {C.journey.items.map((item, index) => (
-            <article className={`journey-card is-${item.tone} ${index % 2 ? 'is-reverse' : ''}`} key={item.step}>
+            <article className={`journey-card is-${item.tone}`} key={item.step}
+              role="tabpanel" id={`journey-panel-${index}`} aria-labelledby={`journey-tab-${index}`}
+              tabIndex={0} hidden={selected !== index}>
               <div className="journey-copy">
                 <div className="journey-meta"><span>{item.step}</span><small>{item.label}</small></div>
                 <h3>{item.title}</h3>
@@ -355,6 +412,7 @@ function V2Showcase() {
             </article>
           ))}
         </div>
+        <p className="screenshot-note">{C.install.screenshotNote}</p>
       </div>
     </section>
   );
@@ -400,6 +458,8 @@ function ExpensePreview() {
               </div>
             ))}
           </div>
+          <StoreActions where="quick_input" className="quick-actions" />
+          <p className="install-note">{C.install.note}</p>
         </div>
         <div className="quick-visual" aria-label={C.quick.visualAria}>
           <PhoneShot src={C.quick.back.src} alt={C.quick.back.alt} nativeStatusBar className="quick-phone-back" />
@@ -470,7 +530,7 @@ function FAQ() {
                 >
                   <span>{item.q}</span><span aria-hidden="true">+</span>
                 </button>
-                {expanded && <p id={`faq-answer-${index}`}>{item.a}</p>}
+                <p id={`faq-answer-${index}`} hidden={!expanded}>{item.a}</p>
               </article>
             );
           })}
@@ -489,10 +549,9 @@ function FinalCTA() {
           <p className="eyebrow">{C.finalCta.eyebrow}</p>
           <h2>{C.finalCta.title}</h2>
           <p>{C.finalCta.lead}</p>
-          <div className="final-actions">
-            <StoreBadge kind="apple" where="final_cta" />
-            <StoreBadge kind="google" where="final_cta" light />
-          </div>
+          <p className="install-hint">{C.install.hint}</p>
+          <StoreActions where="final_cta" className="final-actions" />
+          <p className="install-note">{C.install.note}</p>
         </div>
         <div className="final-art" aria-hidden="true">
           <span className="final-snow final-snow-one">✦</span>
@@ -532,6 +591,44 @@ function Footer() {
   );
 }
 
+function MobileInstallBar() {
+  const barRef = React.useRef(null);
+  React.useEffect(() => {
+    // 큰 글자·안전 영역까지 포함한 실제 높이만큼 페이지 끝을 확보한다.
+    const update = () => document.documentElement.style.setProperty(
+      '--install-bar-height', `${barRef.current?.offsetHeight || 0}px`);
+    update();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', update);
+      return () => window.removeEventListener('resize', update);
+    }
+    const observer = new ResizeObserver(update);
+    observer.observe(barRef.current);
+    return () => observer.disconnect();
+  }, []);
+  return <aside className="mobile-install-bar" ref={barRef} aria-label={C.install.title}>
+    <div className="mobile-install-heading"><strong>{C.brandName}</strong><span>{C.install.note}</span></div>
+    <StoreActions where="mobile_sticky" />
+  </aside>;
+}
+
+function LandingPage() {
+  return <>
+    <Nav />
+    <main id="content">
+      <Hero />
+      <V2Showcase />
+      <ExpensePreview />
+      <HowItWorks />
+      <Features />
+      <FAQ />
+      <FinalCTA />
+    </main>
+    <Footer />
+    <MobileInstallBar />
+  </>;
+}
+
 Object.assign(window, {
   Nav,
   Hero,
@@ -542,4 +639,6 @@ Object.assign(window, {
   FAQ,
   FinalCTA,
   Footer,
+  MobileInstallBar,
+  LandingPage,
 });
